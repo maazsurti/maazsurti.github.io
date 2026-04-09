@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # iOS Developer Portfolio
 
 A polished portfolio site built with **Vite + React + Tailwind CSS v3**.
