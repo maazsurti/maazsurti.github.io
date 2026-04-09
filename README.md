@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # iOS Developer Portfolio
 
 A polished portfolio site built with **Vite + React + Tailwind CSS v3**.
@@ -72,3 +73,4 @@ When `iconImage` or `src` is `null`, the inline SVG placeholder is used automati
 - **Timeline / experience** — edit `timeline` in `src/data/skills.js`
 - **Contact email / social links** — edit `src/sections/Contact.jsx`
 - **Colours / fonts / animations** — edit `tailwind.config.js`
+=======
