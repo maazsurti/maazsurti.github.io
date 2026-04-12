@@ -18,7 +18,7 @@ export default function AppDetailModal({ app, onClose }) {
       <div
         className="relative w-full max-w-[720px] max-h-[90vh] overflow-y-auto rounded-[28px] animate-slide-up"
         style={{
-          background: 'linear-gradient(135deg,#0f0f1a,#12121f)',
+          background: 'linear-gradient(135deg,#ffffff,#f1f5f9)',
           border: `1px solid ${app.color}33`,
           boxShadow: `0 40px 100px ${app.accent}22, 0 0 0 1px ${app.color}22`,
         }}
@@ -30,7 +30,7 @@ export default function AppDetailModal({ app, onClose }) {
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-1.5">
-                <h2 className="font-syne font-extrabold text-[28px] text-white m-0">{app.name}</h2>
+                <h2 className="font-syne font-extrabold text-[28px] text-[#1a1d20] m-0">{app.name}</h2>
                 <span
                   className="font-mono text-[11px] font-bold tracking-[0.08em] rounded-full px-3 py-[3px]"
                   style={{ color: app.color, background: `${app.color}22`, border: `1px solid ${app.color}44` }}
@@ -38,7 +38,7 @@ export default function AppDetailModal({ app, onClose }) {
                   {app.tech}
                 </span>
               </div>
-              <p className="font-outfit text-[13px] text-[#888] mb-3">{app.category} · {app.year}</p>
+              <p className="font-outfit text-[13px] text-[#64748b] mb-3">{app.category} · {app.year}</p>
               <p className="font-syne font-bold text-[17px] italic m-0" style={{ color: app.color }}>
                 "{app.tagline}"
               </p>
@@ -46,9 +46,9 @@ export default function AppDetailModal({ app, onClose }) {
 
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-xl flex items-center justify-center text-lg text-[#888]
-                         bg-white/[0.07] border border-white/[0.12] cursor-pointer transition-all
-                         duration-200 flex-shrink-0 hover:bg-white/10 hover:text-white"
+              className="w-9 h-9 rounded-xl flex items-center justify-center text-lg text-[#64748b]
+                         bg-black/[0.03] border border-black/[0.1] cursor-pointer transition-all
+                         duration-200 flex-shrink-0 hover:bg-black/5 hover:text-black"
             >×</button>
           </div>
         </div>
@@ -62,14 +62,14 @@ export default function AppDetailModal({ app, onClose }) {
           ].map(s => (
             <div key={s.label} className="text-center">
               <div className="font-syne font-extrabold text-[22px]" style={{ color: app.color }}>{s.val}</div>
-              <div className="font-outfit text-[12px] text-[#555] mt-0.5">{s.label}</div>
+              <div className="font-outfit text-[12px] text-[#64748b] mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>
 
         {/* ── Body ───────────────────────────────────────────────────────────── */}
         <div className="px-9 py-7">
-          <p className="font-outfit text-[15px] text-[#aaa] leading-[1.75] mb-7">{app.description}</p>
+          <p className="font-outfit text-[15px] text-[#475569] leading-[1.75] mb-7">{app.description}</p>
 
           {/* Screenshots */}
           {app.screenshots?.length > 0 && (
@@ -80,7 +80,7 @@ export default function AppDetailModal({ app, onClose }) {
                 border: `1px solid ${app.color}18`,
               }}
             >
-              <h3 className="font-syne font-bold text-[13px] text-[#555] tracking-[0.12em] uppercase text-center mb-5">
+              <h3 className="font-syne font-bold text-[13px] text-[#64748b] tracking-[0.12em] uppercase text-center mb-5">
                 Screenshots
               </h3>
               <ScreenshotCarousel
@@ -93,7 +93,7 @@ export default function AppDetailModal({ app, onClose }) {
           )}
 
           {/* Features */}
-          <h3 className="font-syne font-bold text-[13px] text-[#555] tracking-[0.12em] uppercase mb-3.5">
+          <h3 className="font-syne font-bold text-[13px] text-[#64748b] tracking-[0.12em] uppercase mb-3.5">
             Technical Highlights
           </h3>
           <div className="grid grid-cols-2 gap-2.5 mb-7">
@@ -104,7 +104,7 @@ export default function AppDetailModal({ app, onClose }) {
                 style={{ background: `${app.color}0a`, border: `1px solid ${app.color}1a` }}
               >
                 <span className="text-[10px]" style={{ color: app.color }}>▸</span>
-                <span className="font-outfit text-[13px] text-[#bbb]">{f}</span>
+                <span className="font-outfit text-[13px] text-[#475569]">{f}</span>
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function AppDetailModal({ app, onClose }) {
           {/* Store links */}
           {(app.stores?.appStore || app.stores?.playStore) && (
             <div className="pt-6 mt-7" style={{ borderTop: `1px solid ${app.color}15` }}>
-              <h3 className="font-syne font-bold text-[13px] text-[#555] tracking-[0.12em] uppercase mb-3.5">
+              <h3 className="font-syne font-bold text-[13px] text-[#64748b] tracking-[0.12em] uppercase mb-3.5">
                 Download
               </h3>
               <div className="flex gap-3">

@@ -42,12 +42,12 @@ export default function App() {
   }
 
   return (
-    <div className="bg-brand-base min-h-screen text-white overflow-x-hidden">
+    <div className="bg-brand-base min-h-screen overflow-x-hidden">
       <div
         className="fixed inset-0 pointer-events-none z-0 transition-all duration-300"
         style={{
-          background: `radial-gradient(ellipse 80% 60% at ${mousePos.x}% ${mousePos.y}%, rgba(0,212,255,0.04) 0%, transparent 60%),
-                       radial-gradient(ellipse 60% 80% at ${100-mousePos.x}% ${100-mousePos.y}%, rgba(167,139,250,0.04) 0%, transparent 60%)`,
+          background: `radial-gradient(ellipse 80% 60% at ${mousePos.x}% ${mousePos.y}%, rgba(2,132,199,0.04) 0%, transparent 60%),
+                       radial-gradient(ellipse 60% 80% at ${100-mousePos.x}% ${100-mousePos.y}%, rgba(124,58,237,0.04) 0%, transparent 60%)`,
         }}
       />
       <div className="fixed inset-0 pointer-events-none z-0 bg-grid" />
@@ -62,9 +62,9 @@ export default function App() {
         <Contact />
       </main>
 
-      <footer className="border-t border-white/5 px-[8vw] py-6 flex justify-between items-center relative z-[1]">
-        <span className="font-mono text-[11px] text-[#333]">© 2024 · Built with SwiftUI love &amp; React irony</span>
-        <span className="font-mono text-[11px] text-[#333]">
+      <footer className="border-t border-black/5 px-[8vw] py-6 flex justify-between items-center relative z-[1]">
+        <span className="font-mono text-[11px] text-[#64748b]">© 2024 · Built with SwiftUI love &amp; React irony</span>
+        <span className="font-mono text-[11px] text-[#64748b]">
           <span className="text-brand-cyan">◆</span> iOS · Flutter · SwiftUI
         </span>
       </footer>

@@ -26,19 +26,19 @@ export default function AppCard({ app, onClick }) {
       </div>
 
       {/* Title */}
-      <h3 className="font-syne font-extrabold text-[20px] text-white mb-1">{app.name}</h3>
-      <p className="font-mono text-[10px] text-[#555] mb-3 tracking-[0.05em]">{app.category.toUpperCase()}</p>
-      <p className="font-outfit text-[13px] text-[#666] leading-[1.65] mb-5">
+      <h3 className="font-syne font-extrabold text-[20px] text-[#1a1d20] mb-1">{app.name}</h3>
+      <p className="font-mono text-[10px] text-[#64748b] mb-3 tracking-[0.05em]">{app.category.toUpperCase()}</p>
+      <p className="font-outfit text-[13px] text-[#475569] leading-[1.65] mb-5">
         {app.description.slice(0, 120)}…
       </p>
 
       {/* Bottom row */}
       <div className="flex items-center justify-between">
         <div className="flex gap-4">
-          <span className="font-mono text-[11px] text-[#444]">
+          <span className="font-mono text-[11px] text-[#64748b]">
             <span style={{ color: app.color }}>↓</span> {app.stats.downloads}
           </span>
-          <span className="font-mono text-[11px] text-[#444]">★ {app.stats.rating}</span>
+          <span className="font-mono text-[11px] text-[#64748b]">★ {app.stats.rating}</span>
         </div>
         <div className="flex items-center gap-1.5">
           {app.stores?.appStore  && <StoreBadge type="appStore"  url={app.stores.appStore}  color={app.color} compact />}
