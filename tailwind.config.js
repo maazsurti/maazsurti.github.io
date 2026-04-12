@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        syne:   ['"Syne"', 'sans-serif'],
-        outfit: ['"Outfit"', 'sans-serif'],
+        syne:   ['"Plus Jakarta Sans"', 'sans-serif'],
+        outfit: ['"Inter"', 'sans-serif'],
         mono:   ['"DM Mono"', 'monospace'],
       },
       colors: {
         brand: {
-          cyan:   '#00d4ff',
-          violet: '#a78bfa',
-          pink:   '#f472b6',
-          green:  '#34d399',
-          base:   '#07070f',
-          surface:'#0f0f1a',
+          cyan:   '#0284c7',
+          violet: '#7c3aed',
+          pink:   '#db2777',
+          green:  '#059669',
+          base:   '#fafafc',
+          surface:'#ffffff',
         },
       },
       animation: {

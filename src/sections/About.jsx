@@ -11,15 +11,15 @@ export default function About() {
           <h2 className="section-title mb-6" style={{ fontSize:'clamp(32px,4vw,52px)' }}>
             Building apps <span className="text-brand-cyan">that feel</span> as good as they look.
           </h2>
-          <p className="font-outfit text-[15px] text-[#666] leading-[1.8] mb-5">
+          <p className="font-outfit text-[15px] text-[#475569] leading-[1.8] mb-5">
             I've spent the last 5 years obsessing over the craft of iOS development — from the pixels
             on screen to the architecture underneath. I believe great apps aren't just functional;
-            they're <span className="text-[#aaa]">delightful</span>.
+            they're <span className="text-[#0f172a] font-medium">delightful</span>.
           </p>
-          <p className="font-outfit text-[15px] text-[#666] leading-[1.8] mb-8">
+          <p className="font-outfit text-[15px] text-[#475569] leading-[1.8] mb-8">
             My roots are in SwiftUI and UIKit, but I've branched into Flutter for cross-platform
             projects. I care deeply about{' '}
-            <span className="text-[#aaa]">performance, accessibility, and fluid animations</span>{' '}
+            <span className="text-[#0f172a] font-medium">performance, accessibility, and fluid animations</span>{' '}
             that make users smile.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -45,9 +45,9 @@ export default function About() {
                 )}
               </div>
               <div className="pb-2">
-                <div className="font-syne font-bold text-[15px] text-white mb-0.5">{item.role}</div>
+                <div className="font-syne font-bold text-[15px] text-[#1a1d20] mb-0.5">{item.role}</div>
                 <div className="font-mono text-[11px] text-brand-cyan mb-2">{item.company}</div>
-                <p className="font-outfit text-[13px] text-[#555] leading-[1.6]">{item.desc}</p>
+                <p className="font-outfit text-[13px] text-[#64748b] leading-[1.6]">{item.desc}</p>
               </div>
             </div>
           ))}

@@ -21,10 +21,10 @@ export default function Skills() {
                 <div className="flex gap-[3px]">
                   {[1,2,3,4].map(d => (
                     <div key={d} className="w-[5px] h-[5px] rounded-full"
-                      style={{ background: d <= meta.dot ? meta.color : 'rgba(255,255,255,0.1)' }} />
+                      style={{ background: d <= meta.dot ? meta.color : 'rgba(0,0,0,0.1)' }} />
                   ))}
                 </div>
-                <span className="font-mono text-[10px] text-[#555] tracking-[0.06em]">{meta.label}</span>
+                <span className="font-mono text-[10px] text-[#64748b] tracking-[0.06em]">{meta.label}</span>
               </div>
             ))}
           </div>
@@ -36,8 +36,8 @@ export default function Skills() {
         </div>
 
         {/* Toolkit */}
-        <div className="mt-12 pt-10 border-t border-white/5">
-          <h3 className="font-syne font-bold text-[13px] text-[#555] tracking-[0.12em] uppercase mb-4">
+        <div className="mt-12 pt-10 border-t border-black/5">
+          <h3 className="font-syne font-bold text-[13px] text-[#64748b] tracking-[0.12em] uppercase mb-4">
             Also Familiar With
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -47,7 +47,7 @@ export default function Skills() {
 
         {/* Architecture */}
         <div className="mt-10">
-          <h3 className="font-syne font-bold text-[13px] text-[#555] tracking-[0.12em] uppercase mb-4">
+          <h3 className="font-syne font-bold text-[13px] text-[#64748b] tracking-[0.12em] uppercase mb-4">
             Architectural Patterns
           </h3>
           <div className="grid gap-2.5" style={{ gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))' }}>
@@ -58,7 +58,7 @@ export default function Skills() {
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background:color }} />
                 <div>
                   <div className="font-mono text-[12px]" style={{ color }}>{pattern}</div>
-                  <div className="font-outfit text-[11px] text-[#444] mt-0.5">{desc}</div>
+                  <div className="font-outfit text-[11px] text-[#64748b] mt-0.5">{desc}</div>
                 </div>
               </div>
             ))}
