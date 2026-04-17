@@ -8,8 +8,8 @@ export default function Contact() {
       <div className="rounded-[28px] border border-[#d8cec1] bg-brand-surface p-8 md:p-10 text-center">
         <span className="section-label">03 / Contact</span>
         <h2 className="font-outfit font-extrabold leading-[1.06] tracking-[-0.01em] mb-5 text-[#1f1b17]"
-          style={{ fontSize:'clamp(34px,4.6vw,56px)' }}>
-          Have a product to ship
+          style={{ fontSize: 'clamp(34px,4.6vw,56px)' }}>
+          Have a product to ship?
           <br />
           <span className="text-gradient-cyan">Let's talk.</span>
         </h2>
@@ -36,16 +36,16 @@ export default function Contact() {
           </a>
           <button onClick={handleChatClick} className="btn-outline justify-center px-5">Let's Chat</button>
         </div>
-          <div className="flex gap-3 mt-5 justify-center flex-wrap">
-            {[['GitHub','#'],['Twitter / X','#'],['LinkedIn','#'],['App Store','#']].map(([label,href]) => (
-              <a key={label} href={href}
-                className="font-mono text-[11px] text-brand-dim bg-brand-surface border border-[#d7ccbe]
+        <div className="flex gap-3 mt-5 justify-center flex-wrap">
+          {[['GitHub', '#'], ['Twitter / X', '#'], ['LinkedIn', '#'], ['App Store', '#']].map(([label, href]) => (
+            <a key={label} href={href}
+              className="font-mono text-[11px] text-brand-dim bg-brand-surface border border-[#d7ccbe]
                            rounded-[8px] px-4 py-2 no-underline tracking-[0.05em]
                            transition-all duration-200 hover:bg-[#f2ece4] hover:border-[#bfae9b] hover:text-brand-text">
-                {label}
-              </a>
-            ))}
-          </div>
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   )
