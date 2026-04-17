@@ -1,4 +1,4 @@
-import { timeline } from '../data/skills'
+import { timeline } from '../Utilities/data/skills'
 
 const TAGS = ['SwiftUI', 'UIKit', 'Flutter', 'Xcode', 'Instruments', 'TestFlight']
 

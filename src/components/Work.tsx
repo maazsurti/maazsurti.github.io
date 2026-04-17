@@ -1,4 +1,4 @@
-import { apps } from '../data/apps'
+import { apps } from '../Utilities/data/apps'
 import AppCard from './AppCard'
 
 export default function Work({ onSelectApp }) {

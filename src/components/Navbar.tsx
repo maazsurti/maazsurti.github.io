@@ -20,12 +20,12 @@ export default function Navbar({ scrollY, activeSection, onNav }) {
           WebkitTextFillColor: 'transparent',
         }}
       >
-        &lt;/dev&gt;
+        Maaz Surti
       </span>
 
       {/* Links */}
       <div className="flex gap-8">
-        {['home','about','work','skills','contact'].map(s => (
+        {['home','about','work','contact'].map(s => (
           <span
             key={s}
             className="nav-link"

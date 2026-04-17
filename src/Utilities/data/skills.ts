@@ -1,11 +1,33 @@
-export const levelMeta = {
+export interface LevelMetadata {
+  label: string;
+  color: string;
+  bg: string;
+  border: string;
+  dot: number;
+}
+
+export const levelMeta: Record<string, LevelMetadata> = {
   Expert:     { label: 'Expert',     color: '#00d4ff', bg: 'rgba(0,212,255,0.08)',   border: 'rgba(0,212,255,0.25)',   dot: 4 },
   Advanced:   { label: 'Advanced',   color: '#a78bfa', bg: 'rgba(167,139,250,0.08)', border: 'rgba(167,139,250,0.25)', dot: 3 },
   Proficient: { label: 'Proficient', color: '#34d399', bg: 'rgba(52,211,153,0.08)',  border: 'rgba(52,211,153,0.25)',  dot: 2 },
   Learning:   { label: 'Learning',   color: '#fb923c', bg: 'rgba(251,146,60,0.08)',  border: 'rgba(251,146,60,0.25)',  dot: 1 },
 }
 
-export const skillGroups = [
+export interface Skill {
+  name: string;
+  level: string;
+  years: string;
+  detail: string;
+}
+
+export interface SkillGroupData {
+  category: string;
+  icon: string;
+  color: string;
+  skills: Skill[];
+}
+
+export const skillGroups: SkillGroupData[] = [
   {
     category: 'Native iOS', icon: '◆', color: '#00d4ff',
     skills: [
@@ -44,21 +66,34 @@ export const skillGroups = [
   },
 ]
 
-export const timeline = [
+export interface TimelineItemData {
+  year: string;
+  role: string;
+  company: string;
+  desc: string;
+}
+
+export const timeline: TimelineItemData[] = [
   { year: '2024', role: 'Senior iOS Engineer', company: 'Velocity Labs',   desc: 'Leading SwiftUI architecture for a Series B fintech startup. Shipped 3 major features used by 500K+ users.' },
   { year: '2023', role: 'iOS Developer',        company: 'Craft Studios',   desc: 'Built two flagship apps from scratch using SwiftUI and UIKit hybrid approach. Grew DAU by 40%.' },
   { year: '2022', role: 'Junior iOS Developer', company: 'AppForge Inc.',   desc: 'Started mobile career building UIKit apps. Learned best practices in MVVM architecture and CI/CD.' },
   { year: '2021', role: 'Freelance Developer',  company: 'Self-employed',   desc: 'Launched first App Store apps while studying CS. Gained experience across SwiftUI and Flutter.' },
 ]
 
-export const toolkit = [
+export const toolkit: string[] = [
   'MapKit','StoreKit 2','App Clips','Widgets / WidgetKit',
   'Live Activities','Dynamic Island','Spotlight','SharePlay',
   'Push Notifications (APNs)','TestFlight','GitHub Actions','Fastlane',
   'Firebase','Supabase','Figma → Dev Handoff','Accessibility (VoiceOver)',
 ]
 
-export const architectures = [
+export interface ArchitectureData {
+  pattern: string;
+  desc: string;
+  color: string;
+}
+
+export const architectures: ArchitectureData[] = [
   { pattern: 'MVVM',              desc: 'Primary — SwiftUI apps',          color: '#00d4ff' },
   { pattern: 'MVC + Coordinator', desc: 'UIKit heavy codebases',           color: '#a78bfa' },
   { pattern: 'TCA',               desc: 'State management exploration',    color: '#34d399' },

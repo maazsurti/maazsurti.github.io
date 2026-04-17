@@ -1,11 +1,45 @@
 import { svgIcon, svgScreen } from '../utils/svg'
 
-const makeApp = (base) => ({
+export interface AppStoreLinks {
+  appStore: string | null;
+  playStore: string | null;
+}
+
+export interface AppStats {
+  downloads: string;
+  rating: string;
+  reviews: string;
+}
+
+export interface AppScreenshot {
+  label: string;
+  src: string;
+}
+
+export interface App {
+  id: number;
+  name: string;
+  category: string;
+  tech: string;
+  color: string;
+  accent: string;
+  icon: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  stats: AppStats;
+  year: string;
+  stores: AppStoreLinks;
+  screenshots: AppScreenshot[];
+  iconImage?: string; 
+}
+
+const makeApp = (base: any): App => ({
   ...base,
   get iconImage() { return svgIcon(this.color, this.accent, this.icon) },
 })
 
-export const apps = [
+export const apps: App[] = [
   makeApp({
     id: 1, name: 'Luminary', category: 'Health & Wellness', tech: 'SwiftUI',
     color: '#A78BFA', accent: '#7C3AED', icon: '🌙',

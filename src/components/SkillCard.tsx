@@ -1,4 +1,4 @@
-import { levelMeta } from '../data/skills'
+import { levelMeta } from '../Utilities/data/skills'
 
 export default function SkillCard({ skill }) {
   const meta = levelMeta[skill.level]

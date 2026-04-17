@@ -29,10 +29,10 @@ export default function Contact() {
         <div className="flex flex-col gap-3 items-center">
           {/* Primary email CTA */}
           <a
-            href="mailto:dev@example.com"
+            href="mailto:hi@maazsurti.com"
             className="inline-flex items-center gap-2.5 btn-primary no-underline"
           >
-            ✉ dev@example.com
+            ✉ hi@maazsurti.com
           </a>
 
           {/* Social links */}

@@ -2,19 +2,32 @@ export default function Contact() {
   return (
     <section id="contact" className="relative z-[1] pt-20 pb-40 px-[8vw]">
       <div className="max-w-[700px] mx-auto text-center">
-        <span className="section-label">04 / Contact</span>
+        <span className="section-label">03 / Contact</span>
         <h2 className="font-syne font-extrabold leading-[1.0] tracking-[-0.03em] mb-5"
           style={{ fontSize:'clamp(36px,5vw,60px)' }}>
-          Let's build<br />
-          <span className="text-gradient-cyan">something great.</span>
+          Have a product to ship?<br />
+          <span className="text-gradient-cyan">Let's talk.</span>
         </h2>
         <p className="font-outfit text-[15px] text-[#555] leading-[1.7] mb-12">
-          Whether it's a new app idea, a consulting project, or just a chat about Swift — my inbox is open.
+          If you need an iOS app built or improved, send a quick note. I reply fast and get straight to the point.
         </p>
 
         <div className="flex flex-col gap-3 items-center">
-          <a href="mailto:dev@example.com" className="btn-primary">
-            ✉ dev@example.com
+          <a href="mailto:hi@maazsurti.com" className="btn-primary">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 8l9 6 9-6" />
+            </svg>
+            <span>hi@maazsurti.com</span>
           </a>
 
           <div className="flex gap-3 mt-2">

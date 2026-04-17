@@ -1,4 +1,4 @@
-import { skillGroups, levelMeta, toolkit, architectures } from '../data/skills'
+import { skillGroups, levelMeta, toolkit, architectures } from '../Utilities/data/skills'
 import SkillGroup from '../components/SkillGroup'
 
 export default function Skills() {

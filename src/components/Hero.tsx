@@ -1,4 +1,4 @@
-import { apps } from '../data/apps'
+import { apps } from '../Utilities/data/apps'
 import AppIcon from './AppIcon'
 
 export default function Hero({ scrollTo, scrollY }) {
