@@ -20,18 +20,18 @@ export default function StoreBadge({ type, url, color, compact = false }) {
         href={url} target="_blank" rel="noopener noreferrer"
         onClick={e => e.stopPropagation()}
         title={`View on ${label}`}
-        className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#999]
-                   bg-white/[0.06] border border-white/10 rounded-[8px] px-2.5 py-[5px]
+        className="inline-flex items-center gap-1.5 font-mono text-[10px] text-brand-dim
+                   bg-brand-surface border border-[#d8cec1] rounded-[8px] px-2.5 py-[5px]
                    no-underline flex-shrink-0 transition-all duration-200"
         onMouseEnter={e => {
-          e.currentTarget.style.background = color + '18'
-          e.currentTarget.style.borderColor = color + '44'
-          e.currentTarget.style.color = color
+          e.currentTarget.style.background = '#f2ece4'
+          e.currentTarget.style.borderColor = '#bca995'
+          e.currentTarget.style.color = '#26231f'
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
-          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-          e.currentTarget.style.color = '#999'
+          e.currentTarget.style.background = '#fdfaf5'
+          e.currentTarget.style.borderColor = '#d8cec1'
+          e.currentTarget.style.color = '#6c6256'
         }}
       >
         {isApple ? '🍎 iOS' : '▶ Android'}
@@ -45,29 +45,29 @@ export default function StoreBadge({ type, url, color, compact = false }) {
       className="flex items-center gap-3 rounded-[14px] px-5 py-3 no-underline flex-1
                  min-w-0 transition-all duration-200"
       style={{
-        background: isApple ? 'linear-gradient(135deg,#1a1a2e,#111120)' : 'linear-gradient(135deg,#0f1e0f,#0a160a)',
-        border: `1px solid ${isApple ? color + '33' : '#34d39933'}`,
-        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+        background: '#f8f2e8',
+        border: '1px solid #cfc2b2',
+        boxShadow: '0 8px 20px rgba(70,58,45,0.1)',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.transform = 'translateY(-2px)'
-        e.currentTarget.style.boxShadow = `0 8px 30px ${isApple ? color : '#34d399'}22`
-        e.currentTarget.style.borderColor = `${isApple ? color : '#34d399'}55`
+        e.currentTarget.style.boxShadow = '0 12px 28px rgba(70,58,45,0.16)'
+        e.currentTarget.style.borderColor = '#bca995'
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = 'translateY(0)'
-        e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)'
-        e.currentTarget.style.borderColor = `${isApple ? color : '#34d399'}33`
+        e.currentTarget.style.boxShadow = '0 8px 20px rgba(70,58,45,0.1)'
+        e.currentTarget.style.borderColor = '#cfc2b2'
       }}
     >
-      <span className="flex-shrink-0 flex" style={{ color: isApple ? color : '#34d399' }}>
+      <span className="flex-shrink-0 flex" style={{ color }}>
         {isApple ? <AppleIcon /> : <PlayIcon />}
       </span>
       <div>
-        <div className="font-outfit text-[10px] text-[#555] tracking-[0.04em] mb-px">{sub}</div>
-        <div className="font-syne font-bold text-[15px] text-[#e0e0e0]">{label}</div>
+        <div className="font-outfit text-[10px] text-brand-dim tracking-[0.04em] mb-px">{sub}</div>
+        <div className="font-syne font-bold text-[15px] text-brand-text">{label}</div>
       </div>
-      <span className="ml-auto text-[#444] text-base">↗</span>
+      <span className="ml-auto text-brand-dim text-base">↗</span>
     </a>
   )
 }

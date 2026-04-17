@@ -9,9 +9,9 @@ export default function AppIcon({ app, size = 52, shadow = true }) {
         width: size,
         height: size,
         borderRadius: radius,
-        background: `linear-gradient(135deg, ${app.color}22, ${app.accent}33)`,
-        border: `1px solid ${app.color}44`,
-        boxShadow: shadow ? `0 ${Math.round(size*0.08)}px ${Math.round(size*0.4)}px ${app.accent}33` : 'none',
+        background: `linear-gradient(135deg, #f1e8db, ${app.color}1f)`,
+        border: `1px solid #cfbfae`,
+        boxShadow: shadow ? `0 ${Math.round(size*0.08)}px ${Math.round(size*0.35)}px rgba(62,47,32,0.16)` : 'none',
       }}
     >
       {app.iconImage

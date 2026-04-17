@@ -2,39 +2,40 @@ export default function Navbar({ scrollY, activeSection, onNav }) {
   const scrolled = scrollY > 60
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[8vw] h-16 transition-all duration-300"
-      style={{
-        background:           scrolled ? 'rgba(250,250,252,0.9)'          : 'rgba(250,250,252,0)',
-        backdropFilter:       scrolled ? 'blur(20px)'                     : 'blur(0px)',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)'                     : 'blur(0px)',
-        borderBottom:         scrolled ? '1px solid rgba(2,132,199,0.08)' : '1px solid rgba(2,132,199,0)',
-      }}
-    >
-      {/* Logo */}
-      <span
-        className="font-syne font-extrabold text-[18px] tracking-[-0.02em]"
+    <nav className="fixed top-4 left-0 right-0 z-[100] flex justify-center px-[5vw]">
+      <div
+        className="w-full max-w-[980px] h-14 rounded-2xl border px-5 flex items-center justify-between transition-all duration-300"
         style={{
-          background: 'linear-gradient(90deg,#0284c7,#7c3aed)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
+          background:           scrolled ? 'rgba(253,250,245,0.95)' : 'rgba(253,250,245,0.82)',
+          borderColor:          '#d7ccbe',
+          backdropFilter:       'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          boxShadow:            scrolled ? '0 12px 28px rgba(67,52,38,0.14)' : '0 6px 16px rgba(67,52,38,0.08)',
         }}
       >
-        Maaz Surti
+      <span className="font-outfit font-extrabold text-[18px] tracking-[0.02em] text-brand-text">
+        MS
       </span>
 
-      {/* Links */}
-      <div className="flex gap-8">
+      <div className="grid grid-cols-4 gap-2 items-center h-8">
         {['home','about','work','contact'].map(s => (
-          <span
+          <button
             key={s}
-            className="nav-link"
-            style={{ color: activeSection === s ? '#0284c7' : '' }}
+            type="button"
+            className="nav-link inline-flex items-center justify-center h-8 min-w-[86px] leading-[1] rounded-full"
+            style={{
+              color: activeSection === s ? '#26231f' : '',
+              background: activeSection === s ? '#efe6da' : 'transparent',
+            }}
             onClick={() => onNav(s)}
           >
             {s}
-          </span>
+          </button>
         ))}
+      </div>
+      <button className="btn-outline px-4 py-2 rounded-xl text-[11px]" onClick={() => onNav('contact')}>
+        Start a Project
+      </button>
       </div>
     </nav>
   )
