@@ -1,4 +1,4 @@
-import { apps } from '../data/apps'
+import { apps } from '../Utilities/data/apps'
 import AppCard from '../components/AppCard'
 
 export default function Work({ onSelectApp }) {
@@ -8,7 +8,7 @@ export default function Work({ onSelectApp }) {
         <div className="mb-14">
           <span className="section-label">02 / Selected Work</span>
           <h2 className="section-title" style={{ fontSize:'clamp(32px,4vw,52px)' }}>
-            Apps shipped, <span className="text-brand-violet">lessons learned.</span>
+            Products shipped, <span className="text-brand-violet">results delivered.</span>
           </h2>
         </div>
 

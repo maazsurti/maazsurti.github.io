@@ -1,4 +1,4 @@
-import { timeline } from '../data/skills'
+import { timeline } from '../Utilities/data/skills'
 
 export default function About() {
   return (
@@ -9,18 +9,15 @@ export default function About() {
         <div>
           <span className="section-label">01 / About</span>
           <h2 className="section-title mb-6" style={{ fontSize:'clamp(32px,4vw,52px)' }}>
-            Building apps <span className="text-brand-cyan">that feel</span> as good as they look.
+            Building apps that are <span className="text-brand-cyan">clear, fast, and reliable.</span>
           </h2>
           <p className="font-outfit text-[15px] text-[#475569] leading-[1.8] mb-5">
-            I've spent the last 5 years obsessing over the craft of iOS development — from the pixels
-            on screen to the architecture underneath. I believe great apps aren't just functional;
-            they're <span className="text-[#0f172a] font-medium">delightful</span>.
+            For the last 5 years, I've shipped iOS products from concept to release. I care about
+            sharp interfaces, solid architecture, and smooth performance in production.
           </p>
           <p className="font-outfit text-[15px] text-[#475569] leading-[1.8] mb-8">
-            My roots are in SwiftUI and UIKit, but I've branched into Flutter for cross-platform
-            projects. I care deeply about{' '}
-            <span className="text-[#0f172a] font-medium">performance, accessibility, and fluid animations</span>{' '}
-            that make users smile.
+            I work mainly in SwiftUI and UIKit, and I use Flutter when a team needs one codebase
+            across platforms. My priority is simple: build software that works beautifully and ages well.
           </p>
           <div className="flex flex-wrap gap-3">
             {['SwiftUI','UIKit','Flutter','Xcode','Instruments','TestFlight'].map(t => (

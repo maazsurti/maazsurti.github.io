@@ -1,6 +1,6 @@
 // Inline SVG data URI generators — zero network requests, always renders
 
-export function svgIcon(color, accent, emoji) {
+export function svgIcon(color: string, accent: string, emoji: string): string {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
     <defs>
       <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -22,7 +22,7 @@ export function svgIcon(color, accent, emoji) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
 
-export function svgScreen(color, accent, label, index) {
+export function svgScreen(color: string, accent: string, label: string, index: number): string {
   const bars = [65,80,50,90,70,85,60,95,75,55,88,72].map((h, i) =>
     `<rect x="${8 + i * 14}" y="${180 - h}" width="10" height="${h}" rx="3"
       fill="${color}" fill-opacity="${i === 7 ? 0.9 : 0.3 + (i % 3) * 0.15}"/>`

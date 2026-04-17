@@ -1,4 +1,4 @@
-import { apps } from '../data/apps'
+import { apps } from '../Utilities/data/apps'
 
 export default function Hero({ scrollY }) {
   return (
@@ -17,27 +17,27 @@ export default function Hero({ scrollY }) {
           {/* Available badge */}
           <div className="inline-flex items-center gap-2 bg-brand-cyan/[0.07] border border-brand-cyan/20 rounded-full px-4 py-1.5 mb-7">
             <span className="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-pulse-fast" />
-            <span className="font-mono text-[11px] text-brand-cyan tracking-[0.1em]">AVAILABLE FOR FREELANCE</span>
+            <span className="font-mono text-[11px] text-brand-cyan tracking-[0.1em]">OPEN FOR SELECT PROJECTS</span>
           </div>
 
           {/* Headline */}
           <h1 className="font-syne font-extrabold leading-[1.0] tracking-[-0.03em] mb-6"
             style={{ fontSize: 'clamp(48px,7vw,86px)' }}>
-            <span className="block text-[#1a1d20]">Crafting</span>
-            <span className="block text-gradient-hero">iOS Apps</span>
-            <span className="block text-[#1a1d20]">Worth Using.</span>
+            <span className="block text-[#1a1d20]">I build</span>
+            <span className="block text-gradient-hero">iOS products</span>
+            <span className="block text-[#1a1d20]">people keep using.</span>
           </h1>
 
           <p className="font-outfit text-[17px] text-[#475569] leading-[1.7] max-w-[480px] mb-10">
-            Senior iOS developer specializing in{' '}
+            I'm Maaz Surti, an iOS developer focused on{' '}
             <span className="text-[#0f172a] font-medium">SwiftUI</span> &amp;{' '}
-            <span className="text-[#0f172a] font-medium">UIKit</span> — building performant, beautifully crafted native apps.
-            Also shipping cross-platform with <span className="text-[#0f172a] font-medium">Flutter</span>.
+            <span className="text-[#0f172a] font-medium">UIKit</span>. I ship fast, stable native apps with clean UX,
+            and I use <span className="text-[#0f172a] font-medium">Flutter</span> when cross-platform delivery makes sense.
           </p>
 
           <div className="flex gap-4 items-center">
             <button className="btn-primary" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior:'smooth' })}>
-              View My Apps →
+              See My Work →
             </button>
             <button className="btn-outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior:'smooth' })}>
               Get In Touch
