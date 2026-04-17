@@ -1,6 +1,9 @@
 import { apps } from '../Utilities/data/apps'
 
 export default function Hero({ scrollY }) {
+  const handleViewWorkClick = () => document.getElementById('work')?.scrollIntoView({ behavior:'smooth' })
+  const handleContactClick = () => document.getElementById('contact')?.scrollIntoView({ behavior:'smooth' })
+
   return (
     <section id="home" className="relative overflow-hidden mb-20">
       <div className="rounded-[30px] border border-[#d8cec1] bg-brand-surface px-8 md:px-12 py-12 md:py-14">
@@ -16,11 +19,9 @@ export default function Hero({ scrollY }) {
           </p>
           <h1 className="font-outfit font-extrabold leading-[1.03] tracking-[-0.015em] mb-6 text-[#1f1b17]"
             style={{ fontSize: 'clamp(42px,6vw,76px)' }}>
-            Designing and shipping
+            Crafting premium
             <br />
-            native apps that hold up
-            <br />
-            after launch.
+            native apps.
           </h1>
 
           <p className="font-outfit text-[17px] text-brand-dim leading-[1.7] max-w-[560px] mb-10">
@@ -31,10 +32,10 @@ export default function Hero({ scrollY }) {
           </p>
 
           <div className="flex gap-4 items-center">
-            <button className="btn-primary" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior:'smooth' })}>
+            <button className="btn-primary" onClick={handleViewWorkClick}>
               See My Work →
             </button>
-            <button className="btn-outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior:'smooth' })}>
+            <button className="btn-outline" onClick={handleContactClick}>
               Get In Touch
             </button>
           </div>

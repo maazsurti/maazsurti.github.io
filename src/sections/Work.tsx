@@ -2,6 +2,8 @@ import { apps } from '../Utilities/data/apps'
 import AppCard from '../components/AppCard'
 
 export default function Work({ onSelectApp }) {
+  const handleAppSelect = (app) => () => onSelectApp(app)
+
   return (
     <section id="work" className="relative z-[1] mb-20">
       <div className="rounded-[28px] border border-[#d8cec1] bg-brand-surface p-8 md:p-10">
@@ -14,7 +16,7 @@ export default function Work({ onSelectApp }) {
 
         <div className="grid gap-5" style={{ gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))' }}>
           {apps.map(app => (
-            <AppCard key={app.id} app={app} onClick={() => onSelectApp(app)} />
+            <AppCard key={app.id} app={app} onClick={handleAppSelect(app)} />
           ))}
         </div>
       </div>

@@ -18,6 +18,7 @@ export default function ScreenshotCarousel({ screenshots, color }) {
   }
   const prev = () => go((active - 1 + screenshots.length) % screenshots.length, -1)
   const next = () => go((active + 1) % screenshots.length, 1)
+  const handleDotClick = (index) => () => go(index)
 
   useEffect(() => {
     const handler = (e) => {
@@ -104,7 +105,7 @@ export default function ScreenshotCarousel({ screenshots, color }) {
         {screenshots.map((s, i) => (
           <button
             key={i}
-            onClick={() => go(i)}
+            onClick={handleDotClick(i)}
             className="relative overflow-hidden rounded-[8px] p-0 cursor-pointer flex-shrink-0 transition-all duration-[250ms]"
             style={{
               width: i === active ? 44 : 36,

@@ -12,6 +12,10 @@ export default function AppDetailModal({ app, onClose }) {
     return () => { document.body.style.overflow = '' }
   }, [])
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose()
+  }
+
   useEffect(() => {
     closeBtnRef.current?.focus()
 
@@ -56,7 +60,7 @@ export default function AppDetailModal({ app, onClose }) {
     <div
       className="fixed inset-0 z-[1000] flex items-center justify-center p-5 animate-fade-in"
       style={{ background: 'rgba(24,20,16,0.58)', backdropFilter: 'blur(8px)' }}
-      onClick={e => e.target === e.currentTarget && onClose()}
+      onClick={handleBackdropClick}
     >
       <div
         ref={dialogRef}

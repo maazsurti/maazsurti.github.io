@@ -1,4 +1,8 @@
 export default function Contact() {
+  const handleChatClick = () => {
+    // TODO: Implement chat action
+  };
+
   return (
     <section id="contact" className="relative z-[1]">
       <div className="rounded-[28px] border border-[#d8cec1] bg-brand-surface p-8 md:p-10 text-center">
@@ -30,7 +34,7 @@ export default function Contact() {
             </svg>
             <span>hi@maazsurti.com</span>
           </a>
-          <button className="btn-outline justify-center px-5">Book Discovery Call</button>
+          <button onClick={handleChatClick} className="btn-outline justify-center px-5">Let's Chat</button>
         </div>
           <div className="flex gap-3 mt-5 justify-center flex-wrap">
             {[['GitHub','#'],['Twitter / X','#'],['LinkedIn','#'],['App Store','#']].map(([label,href]) => (
