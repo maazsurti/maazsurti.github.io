@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function ScreenshotCarousel({ screenshots, color, icon }) {
+export default function ScreenshotCarousel({ screenshots, color }) {
   const [active, setActive] = useState(0)
   const [prevActive, setPrevActive] = useState(0)
   const [dir, setDir]       = useState(1)
@@ -32,42 +32,34 @@ export default function ScreenshotCarousel({ screenshots, color, icon }) {
 
   return (
     <div className="select-none">
-      {/* Phone + arrows */}
       <div className="flex items-center justify-center gap-4 mb-4">
-        {/* Prev */}
         <button
           onClick={prev}
           className="w-9 h-9 rounded-full flex items-center justify-center text-lg
-                     bg-black/5 border border-black/10 text-[#64748b] cursor-pointer
+                     bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
                      transition-all duration-200 flex-shrink-0"
-          style={{}}
           onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#64748b' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
         >‹</button>
 
-        {/* Phone frame */}
         <div className="relative flex-shrink-0">
-          {/* Glow */}
           <div
             className="absolute inset-[-20px] pointer-events-none"
-            style={{ background: `radial-gradient(ellipse, ${color}18 0%, transparent 70%)` }}
+            style={{ background: 'radial-gradient(ellipse, rgba(95,81,67,0.14) 0%, transparent 70%)' }}
           />
-          {/* Shell */}
           <div
             className="relative overflow-hidden"
             style={{
               width: 180, height: 360,
-              background: '#f8fafc',
+              background: '#f8f2e8',
               borderRadius: 36,
-              border: '2px solid rgba(0,0,0,0.1)',
-              boxShadow: '0 30px 80px rgba(0,0,0,0.1), inset 0 1px 0 rgba(0,0,0,0.05)',
+              border: '2px solid #ccbca8',
+              boxShadow: '0 20px 60px rgba(50,42,33,0.2), inset 0 1px 0 rgba(255,255,255,0.3)',
             }}
           >
-            {/* Dynamic island */}
             <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 bg-black rounded-[14px]"
               style={{ width: 56, height: 16 }} />
 
-            {/* Previous screen image (persists beneath) */}
             {active !== prevActive && (
               <img
                 src={screenshots[prevActive]?.src}
@@ -77,7 +69,6 @@ export default function ScreenshotCarousel({ screenshots, color, icon }) {
               />
             )}
 
-            {/* Screen image */}
             <img
               key={key}
               src={scr.src}
@@ -90,29 +81,25 @@ export default function ScreenshotCarousel({ screenshots, color, icon }) {
               }}
             />
 
-            {/* Home indicator */}
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 rounded-full bg-black/20"
               style={{ width: 80, height: 3 }} />
           </div>
         </div>
 
-        {/* Next */}
         <button
           onClick={next}
           className="w-9 h-9 rounded-full flex items-center justify-center text-lg
-                     bg-black/5 border border-black/10 text-[#64748b] cursor-pointer
+                     bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
                      transition-all duration-200 flex-shrink-0"
           onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#64748b' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
         >›</button>
       </div>
 
-      {/* Screen label */}
       <div className="text-center mb-3.5">
-        <span className="font-mono text-[11px] tracking-[0.08em]" style={{ color }}>{scr.label}</span>
+        <span className="font-mono text-[11px] tracking-[0.08em] text-brand-dim">{scr.label}</span>
       </div>
 
-      {/* Thumbnails */}
       <div className="flex gap-2 justify-center">
         {screenshots.map((s, i) => (
           <button
@@ -122,7 +109,7 @@ export default function ScreenshotCarousel({ screenshots, color, icon }) {
             style={{
               width: i === active ? 44 : 36,
               height: 64,
-              border: `1.5px solid ${i === active ? color+'88' : 'rgba(0,0,0,0.08)'}`,
+              border: `1.5px solid ${i === active ? '#9f8e7a' : '#d4c8ba'}`,
               background: 'transparent',
             }}
           >
@@ -130,14 +117,14 @@ export default function ScreenshotCarousel({ screenshots, color, icon }) {
             {i === active && (
               <div
                 className="absolute inset-0 pointer-events-none rounded-[7px]"
-                style={{ border: `2px solid ${color}` }}
+                style={{ border: '2px solid #8e7b66' }}
               />
             )}
           </button>
         ))}
       </div>
 
-      <p className="font-outfit text-[10px] text-[#94a3b8] text-center mt-2.5">
+      <p className="font-outfit text-[10px] text-brand-dim text-center mt-2.5">
         ← → keyboard navigation · {active + 1} / {screenshots.length}
       </p>
     </div>

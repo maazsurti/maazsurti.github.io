@@ -10,12 +10,12 @@ export default {
       },
       colors: {
         brand: {
-          cyan:   '#0284c7',
-          violet: '#7c3aed',
-          pink:   '#db2777',
-          green:  '#059669',
-          base:   '#fafafc',
-          surface:'#ffffff',
+          accent:  '#0f766e',
+          base:    '#f5f1ea',
+          surface: '#fdfaf5',
+          muted:   '#e7dfd4',
+          text:    '#26231f',
+          dim:     '#6c6256',
         },
       },
       animation: {

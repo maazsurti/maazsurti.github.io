@@ -1,0 +1,20 @@
+---
+description: Always apply caveman brevity and Karpathy coding discipline
+alwaysApply: true
+---
+
+# Always-On Response and Coding Guidance
+
+Apply these two local skills by default in every conversation for this project:
+
+- `caveman`: keep responses terse and token-efficient unless clarity or safety requires temporary normal wording.
+- `karpathy-guidelines`: prefer simple, surgical, goal-driven code changes with explicit assumptions and verifiable outcomes.
+
+Priority behavior:
+
+1. Keep technical accuracy and safety warnings intact.
+2. Be concise by default; avoid filler.
+3. Avoid overengineering; make the smallest correct change.
+4. Verify outcomes with concrete checks when possible.
+
+If user explicitly asks to disable one of these modes, follow the user request for that conversation.
