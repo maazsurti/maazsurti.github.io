@@ -14,11 +14,13 @@ export default function StoreBadge({ type, url, color, compact = false }) {
   const label   = isApple ? 'App Store'          : 'Google Play'
   const sub     = isApple ? 'Download on the'    : 'Get it on'
 
+  const handleBadgeClick = (e) => e.stopPropagation()
+
   if (compact) {
     return (
       <a
         href={url} target="_blank" rel="noopener noreferrer"
-        onClick={e => e.stopPropagation()}
+        onClick={handleBadgeClick}
         title={`View on ${label}`}
         className="inline-flex items-center gap-1.5 font-mono text-[10px] text-brand-dim
                    bg-brand-surface border border-[#d8cec1] rounded-[8px] px-2.5 py-[5px]

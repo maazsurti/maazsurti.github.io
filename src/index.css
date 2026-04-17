@@ -17,6 +17,10 @@ body {
   overflow-x: hidden;
 }
 
+section {
+  scroll-margin-top: 110px;
+}
+
 /* ── Gradient text utility ─────────────────────────────────────────────────── */
 .text-gradient-cyan {
   background: linear-gradient(90deg, #5b5349, #26231f);
