@@ -74,13 +74,14 @@ export default function AppDetailModal({ app, onClose }) {
           boxShadow: '0 30px 80px rgba(36,30,24,0.24)',
         }}
       >
-        <div className="px-9 pt-9 pb-7" style={{ borderBottom: '1px solid #d8cec1' }}>
-          <div className="flex items-start gap-5">
-            <AppIcon app={app} size={80} />
+        <div className="px-5 sm:px-9 pt-7 sm:pt-9 pb-5 sm:pb-7" style={{ borderBottom: '1px solid #d8cec1' }}>
+          <div className="flex items-start gap-4 sm:gap-5">
+            <div className="hidden sm:block"><AppIcon app={app} size={80} /></div>
+            <div className="sm:hidden"><AppIcon app={app} size={60} /></div>
 
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-1.5">
-                <h2 className="font-syne font-bold text-[28px] text-brand-text m-0">{app.name}</h2>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5">
+                <h2 className="font-syne font-bold text-[22px] sm:text-[28px] text-brand-text m-0">{app.name}</h2>
                 <span
                   className="font-mono text-[11px] font-bold tracking-[0.08em] rounded-full px-3 py-[3px]"
                   style={{ color: '#5f5143', background: '#f2ece4', border: '1px solid #d7ccbe' }}
@@ -97,27 +98,27 @@ export default function AppDetailModal({ app, onClose }) {
             <button
               ref={closeBtnRef}
               onClick={onClose}
-              className="w-9 h-9 rounded-xl flex items-center justify-center text-lg text-brand-dim
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-lg text-brand-dim
                          bg-black/[0.03] border border-black/[0.1] cursor-pointer transition-all
                          duration-200 flex-shrink-0 hover:bg-black/5 hover:text-brand-text"
             >×</button>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 px-9 py-5 bg-[#f8f2e8]" style={{ borderBottom: '1px solid #dfd4c6' }}>
+        <div className="grid grid-cols-3 px-4 sm:px-9 py-4 sm:py-5 bg-[#f8f2e8]" style={{ borderBottom: '1px solid #dfd4c6' }}>
           {[
             { label: 'Downloads', val: app.stats.downloads },
             { label: 'App Rating', val: '★ ' + app.stats.rating },
             { label: 'Reviews',   val: app.stats.reviews },
           ].map(s => (
-            <div key={s.label} className="text-center">
-              <div className="font-syne font-bold text-[22px] text-brand-text">{s.val}</div>
-              <div className="font-outfit text-[12px] text-brand-dim mt-0.5">{s.label}</div>
+            <div key={s.label} className="text-center px-1">
+              <div className="font-syne font-bold text-[16px] sm:text-[22px] text-brand-text truncate">{s.val}</div>
+              <div className="font-outfit text-[11px] sm:text-[12px] text-brand-dim mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="px-9 py-7 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-7">
+        <div className="px-5 sm:px-9 py-6 sm:py-7 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-7">
           <div>
             <p className="font-outfit text-[15px] text-brand-dim leading-[1.75] mb-7">{app.description}</p>
             {app.screenshots?.length > 0 && (

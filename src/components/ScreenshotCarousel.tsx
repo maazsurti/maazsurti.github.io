@@ -33,21 +33,16 @@ export default function ScreenshotCarousel({ screenshots, color }) {
 
   return (
     <div className="select-none">
-      <div className="flex items-center justify-center gap-4 mb-4">
-        <button
-          onClick={prev}
-          className="w-9 h-9 rounded-full flex items-center justify-center text-lg
-                     bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
-                     transition-all duration-200 flex-shrink-0"
-          onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
-        >‹</button>
-
-        <div className="relative flex-shrink-0">
+      {/* Phone + arrows — arrows sit inside the relative wrapper so they never overflow */}
+      <div className="flex items-center justify-center mb-4">
+        <div className="relative">
+          {/* Glow */}
           <div
             className="absolute inset-[-20px] pointer-events-none"
             style={{ background: 'radial-gradient(ellipse, rgba(95,81,67,0.14) 0%, transparent 70%)' }}
           />
+
+          {/* Phone frame */}
           <div
             className="relative overflow-hidden"
             style={{
@@ -85,16 +80,27 @@ export default function ScreenshotCarousel({ screenshots, color }) {
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 rounded-full bg-black/20"
               style={{ width: 80, height: 3 }} />
           </div>
-        </div>
 
-        <button
-          onClick={next}
-          className="w-9 h-9 rounded-full flex items-center justify-center text-lg
-                     bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
-                     transition-all duration-200 flex-shrink-0"
-          onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
-          onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
-        >›</button>
+          {/* Arrows — absolutely positioned on the sides of the phone, never overflow */}
+          <button
+            onClick={prev}
+            className="absolute top-1/2 -translate-y-1/2 -left-11 w-8 h-8 rounded-full
+                       flex items-center justify-center text-lg
+                       bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
+                       transition-all duration-200"
+            onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
+          >‹</button>
+          <button
+            onClick={next}
+            className="absolute top-1/2 -translate-y-1/2 -right-11 w-8 h-8 rounded-full
+                       flex items-center justify-center text-lg
+                       bg-[#f2ece4] border border-[#d1c5b7] text-brand-dim cursor-pointer
+                       transition-all duration-200"
+            onMouseEnter={e => { e.currentTarget.style.background = color+'22'; e.currentTarget.style.color = color }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#f2ece4'; e.currentTarget.style.color = '#6c6256' }}
+          >›</button>
+        </div>
       </div>
 
       <div className="text-center mb-3.5">
@@ -125,7 +131,7 @@ export default function ScreenshotCarousel({ screenshots, color }) {
         ))}
       </div>
 
-      <p className="font-outfit text-[10px] text-brand-dim text-center mt-2.5">
+      <p className="hidden sm:block font-outfit text-[10px] text-brand-dim text-center mt-2.5">
         ← → keyboard navigation · {active + 1} / {screenshots.length}
       </p>
     </div>

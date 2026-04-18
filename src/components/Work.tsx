@@ -19,7 +19,7 @@ export default function Work({ onSelectApp }) {
         </div>
 
         {/* Grid */}
-        <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(340px,1fr))' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {apps.map((app) => (
             <AppCard key={app.id} app={app} onClick={() => onSelectApp(app)} />
           ))}

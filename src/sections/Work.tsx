@@ -6,7 +6,7 @@ export default function Work({ onSelectApp }) {
 
   return (
     <section id="work" className="relative z-[1] mb-20">
-      <div className="rounded-[28px] border border-[#d8cec1] bg-brand-surface p-8 md:p-10">
+      <div className="rounded-[28px] border border-[#d8cec1] bg-brand-surface p-5 sm:p-8 md:p-10">
         <div className="mb-14">
           <span className="section-label">02 / Selected Work</span>
           <h2 className="section-title" style={{ fontSize:'clamp(32px,4vw,52px)' }}>
@@ -14,7 +14,7 @@ export default function Work({ onSelectApp }) {
           </h2>
         </div>
 
-        <div className="grid gap-5" style={{ gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
           {apps.map(app => (
             <AppCard key={app.id} app={app} onClick={handleAppSelect(app)} />
           ))}
