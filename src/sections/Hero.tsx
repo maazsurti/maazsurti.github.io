@@ -31,20 +31,20 @@ export default function Hero({ scrollY }) {
             and I use <span className="text-brand-text font-medium">Flutter</span> when cross-platform delivery makes sense.
           </p>
 
-          <div className="flex gap-4 items-center">
-            <button className="btn-primary" onClick={handleViewWorkClick}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+            <button className="btn-primary justify-center text-center" onClick={handleViewWorkClick}>
               See My Work →
             </button>
-            <button className="btn-outline" onClick={handleContactClick}>
+            <button className="btn-outline justify-center text-center" onClick={handleContactClick}>
               Get In Touch
             </button>
           </div>
 
-          <div className="grid grid-cols-3 gap-5 mt-12 max-w-[620px]">
+          <div className="grid grid-cols-3 gap-2 sm:gap-5 mt-8 sm:mt-12 max-w-[620px]">
             {[['6+','Apps on Store'],['500K+','Total Downloads'],['4.8★','Avg Rating']].map(([n,l]) => (
-              <div key={l} className="rounded-2xl border border-[#ded3c6] bg-[#faf5ed] px-4 py-4">
-                <div className="font-outfit font-extrabold text-[24px] text-brand-text">{n}</div>
-                <div className="font-outfit text-[12px] text-brand-dim mt-0.5">{l}</div>
+              <div key={l} className="rounded-xl sm:rounded-2xl border border-[#ded3c6] bg-[#faf5ed] px-2 py-3 sm:px-4 sm:py-4 text-center sm:text-left">
+                <div className="font-outfit font-extrabold text-[18px] sm:text-[24px] text-brand-text">{n}</div>
+                <div className="font-outfit text-[10px] sm:text-[12px] text-brand-dim mt-0.5 leading-tight">{l}</div>
               </div>
             ))}
           </div>
