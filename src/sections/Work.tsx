@@ -1,8 +1,12 @@
-import { apps } from '../Utilities/data/apps'
+import { apps, App } from '../Utilities/data/apps'
 import AppCard from '../components/AppCard'
 
-export default function Work({ onSelectApp }) {
-  const handleAppSelect = (app) => () => onSelectApp(app)
+interface WorkProps {
+  onSelectApp: (app: App) => void;
+}
+
+export default function Work({ onSelectApp }: WorkProps) {
+  const handleAppSelect = (app: App) => () => onSelectApp(app)
 
   return (
     <section id="work" className="relative z-[1] mb-20">

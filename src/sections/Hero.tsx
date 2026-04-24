@@ -9,11 +9,6 @@ export default function Hero({ scrollY }) {
       <div className="rounded-[30px] border border-[#d8cec1] bg-brand-surface px-8 md:px-12 py-12 md:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10 items-start">
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#f2ece4] border border-[#d7ccbe] rounded-full px-4 py-1.5 mb-7">
-            <span className="w-1.5 h-1.5 bg-brand-text rounded-full animate-pulse-fast" />
-            <span className="font-mono text-[11px] text-brand-dim tracking-[0.1em]">OPEN FOR SELECT PROJECTS</span>
-          </div>
-
           <p className="font-mono text-[11px] tracking-[0.12em] text-brand-dim uppercase mb-4">
             Product engineer for iOS teams
           </p>

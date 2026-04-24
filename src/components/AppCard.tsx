@@ -1,7 +1,13 @@
 import AppIcon from './AppIcon'
 import StoreBadge from './StoreBadge'
+import { App } from '../Utilities/data/apps'
 
-export default function AppCard({ app, onClick }) {
+interface AppCardProps {
+  app: App;
+  onClick: () => void;
+}
+
+export default function AppCard({ app, onClick }: AppCardProps) {
   return (
     <div
       className="card-base p-0"
