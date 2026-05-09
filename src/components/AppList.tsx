@@ -27,12 +27,10 @@ function AppCard({ app, index, expanded, onToggle }: {
             </span>
           </div>
           <div
-            className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-muted"
+            className="text-xs font-black uppercase tracking-widest text-muted"
             style={{ letterSpacing: '0.1em' }}
           >
-            <span>{app.category}</span>
-            <span>·</span>
-            <span>{app.year}</span>
+            {app.category}
           </div>
         </div>
 
@@ -56,11 +54,10 @@ function AppCard({ app, index, expanded, onToggle }: {
         </span>
 
         {/* Meta */}
-        <div className="mt-6 pt-5 border-t border-edge grid grid-cols-3 gap-3">
+        <div className="mt-6 pt-5 border-t border-edge grid grid-cols-2 gap-3">
           {[
             { val: app.meta.platform, label: 'Platform' },
             { val: app.meta.languages, label: 'Languages' },
-            { val: app.meta.year, label: 'Year' },
           ].map(({ val, label }) => (
             <div key={label}>
               <p

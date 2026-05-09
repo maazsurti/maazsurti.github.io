@@ -8,7 +8,6 @@ export interface AppStoreLinks {
 export interface AppMeta {
   platform: string;
   languages: string;
-  year: string;
 }
 
 export interface AppScreenshot {
@@ -53,7 +52,7 @@ export const apps: App[] = [
       'Buyer & seller confidence flows',
       'Full App Store release lifecycle ownership',
     ],
-    meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR', year: '2024' },
+    meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/secondhand-souq/id6741193174', playStore: null },
     get screenshots() {
@@ -78,7 +77,7 @@ export const apps: App[] = [
       'Secure in-app payment wallet',
       'English + Arabic localization',
     ],
-    meta: { platform: 'iOS', languages: 'EN + AR', year: '2024' },
+    meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/lorrynow/id6746252731', playStore: null },
     get screenshots() {
@@ -103,7 +102,7 @@ export const apps: App[] = [
       'Event detail sharing',
       'Smooth occasion management',
     ],
-    meta: { platform: 'iOS', languages: 'EN + AR', year: '2025' },
+    meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2025',
     stores: { appStore: 'https://apps.apple.com/in/app/vite-kuwait/id6755060002', playStore: null },
     get screenshots() {
@@ -128,7 +127,7 @@ export const apps: App[] = [
       'Subscription & session management',
       'English + Arabic localization',
     ],
-    meta: { platform: 'iOS', languages: 'EN + AR', year: '2024' },
+    meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/fit-habibi/id6736990371', playStore: null },
     get screenshots() {
@@ -153,7 +152,7 @@ export const apps: App[] = [
       'Pet supplies store',
       'Easy scheduling & management',
     ],
-    meta: { platform: 'iOS', languages: 'EN + AR', year: '2023' },
+    meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2023',
     stores: { appStore: 'https://apps.apple.com/us/app/petbook-kuwait/id6476278399', playStore: null },
     get screenshots() {
@@ -178,7 +177,7 @@ export const apps: App[] = [
       'Member access & info',
       'Service discovery & navigation',
     ],
-    meta: { platform: 'iOS', languages: 'EN', year: '2022' },
+    meta: { platform: 'iOS', languages: 'EN' },
     year: '2022',
     stores: { appStore: 'https://apps.apple.com/us/app/reflex-kuwait/id1640988212', playStore: null },
     get screenshots() {
