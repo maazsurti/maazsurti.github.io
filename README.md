@@ -1,75 +1,73 @@
-# Maaz Surti | Portfolio
+# React + TypeScript + Vite
 
-A polished portfolio site built with **Vite + React + Tailwind CSS v3**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Setup
+Currently, two official plugins are available:
 
-```bash
-# 1. Install dependencies
-npm install
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-# 2. Start dev server
-npm run dev
+## React Compiler
 
-# 3. Build for production
-npm run build
-```
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Project Structure
+## Expanding the ESLint configuration
 
-```
-src/
-├── App.jsx                     # Root — layout, global state
-├── main.jsx                    # Entry point
-├── index.css                   # Tailwind directives + custom utilities
-│
-├── data/
-│   ├── apps.js                 # App portfolio data (iconImage, screenshots)
-│   └── skills.js               # Skills, timeline, toolkit, architecture data
-│
-├── utils/
-│   └── svg.js                  # Inline SVG generators (no network needed)
-│
-├── components/
-│   ├── Navbar.jsx
-│   ├── AppIcon.jsx             # iOS squircle icon container
-│   ├── StoreBadge.jsx          # App Store / Google Play badges
-│   ├── AppCard.jsx             # Work grid card
-│   ├── AppDetailModal.jsx      # Full detail overlay
-│   ├── ScreenshotCarousel.jsx  # Phone frame + swipeable screenshots
-│   ├── SkillCard.jsx           # Individual skill with dot proficiency
-│   └── SkillGroup.jsx          # Grouped skill category
-│
-└── sections/
-    ├── Hero.jsx
-    ├── About.jsx
-    ├── Work.jsx
-    ├── Skills.jsx
-    └── Contact.jsx
-```
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Swapping in real images
-
-**App icons** — set `iconImage` in `src/data/apps.js`:
 ```js
-iconImage: 'https://your-cdn.com/app-icon.png',  // 1024×1024 recommended
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-**Screenshots** — set `src` on each screenshot object:
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
 ```js
-screenshots: [
-  { label: 'Home Screen', src: 'https://your-cdn.com/screen1.png' },  // 390×844 portrait
-  ...
-]
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-When `iconImage` or `src` is `null`, the inline SVG placeholder is used automatically.
-
-## Customising
-
-- **Personal info** — edit `src/sections/Hero.jsx` (name, tagline, stats)
-- **Apps** — edit `src/data/apps.js`
-- **Skills** — edit `src/data/skills.js`
-- **Timeline / experience** — edit `timeline` in `src/data/skills.js`
-- **Contact email / social links** — edit `src/sections/Contact.jsx`
-- **Colours / fonts / animations** — edit `tailwind.config.js`
-=======
