@@ -4,8 +4,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <span
-            className="font-black uppercase text-ink"
-            style={{ letterSpacing: '0.05em', fontSize: '0.875rem' }}
+            className="font-display font-black uppercase text-ink text-sm"
+            style={{ letterSpacing: '0.05em' }}
           >
             Maaz Surti
           </span>

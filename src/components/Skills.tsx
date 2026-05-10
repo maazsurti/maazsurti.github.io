@@ -54,8 +54,7 @@ export default function Skills() {
                 {label}
               </p>
 
-              {/* Items as plain typographic text, not pill tags */}
-              <p className="text-lg font-semibold text-ink leading-relaxed">
+              <p className="font-serif text-lg font-semibold text-ink leading-relaxed">
                 {items.map((item, i) => (
                   <span key={item}>
                     {item}

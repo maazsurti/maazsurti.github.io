@@ -19,8 +19,8 @@ export default function Timeline() {
             >
               {/* Year */}
               <div
-                className="text-xl font-black text-muted shrink-0 w-28 pt-1"
-                style={{ fontFamily: 'var(--font-family-mono)', letterSpacing: '-0.02em' }}
+                className="font-mono text-xl font-black text-muted shrink-0 w-28 pt-1"
+                style={{ letterSpacing: '-0.02em' }}
               >
                 {item.year}
               </div>
@@ -28,7 +28,7 @@ export default function Timeline() {
               <div className="flex-1">
                 {/* Role — headline scale */}
                 <p
-                  className="font-black text-3xl lg:text-4xl text-ink group-hover:text-accent transition-colors duration-150 leading-none mb-3"
+                  className="font-display font-black text-3xl lg:text-4xl text-ink group-hover:text-accent transition-colors duration-150 leading-none mb-3"
                   style={{ letterSpacing: '-0.02em' }}
                 >
                   {item.role}
@@ -43,14 +43,9 @@ export default function Timeline() {
                 </p>
 
                 {/* Location */}
-                <p
-                  className="text-sm text-muted mb-5"
-                  style={{ fontFamily: 'var(--font-family-mono)' }}
-                >
-                  {item.location}
-                </p>
+                <p className="font-mono text-sm text-muted mb-5">{item.location}</p>
 
-                <p className="text-base text-muted leading-relaxed">{item.desc}</p>
+                <p className="font-serif text-base text-muted leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}

@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource/lora';
+@import '@fontsource/lora/400-italic.css';
+@import '@fontsource/lora/600.css';
 
 @theme {
   --color-bg: #FAFAF8;
@@ -8,6 +12,8 @@
   --color-subtle: #9CA3AF;
   --color-edge: #E4E4E7;
   --color-surface: #FFFFFF;
+  --font-family-display: 'Playfair Display Variable', ui-serif, serif;
+  --font-family-serif: 'Lora', ui-serif, Georgia, serif;
   --font-family-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
 }
 

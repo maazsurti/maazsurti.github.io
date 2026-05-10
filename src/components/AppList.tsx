@@ -15,7 +15,7 @@ function AppCard({ app, index, expanded, onToggle }: {
     >
       {/* Decorative large index — typographic texture */}
       <span
-        className="absolute top-0 right-4 text-[8rem] font-black leading-none select-none pointer-events-none"
+        className="font-display absolute top-0 right-4 text-[8rem] font-black leading-none select-none pointer-events-none"
         style={{ color: app.color, opacity: 0.07, letterSpacing: '-0.04em' }}
       >
         {String(index + 1).padStart(2, '0')}
@@ -35,8 +35,8 @@ function AppCard({ app, index, expanded, onToggle }: {
             </span>
           </div>
           <span
-            className="text-xs font-black uppercase tracking-widest text-muted"
-            style={{ fontFamily: 'var(--font-family-mono)', letterSpacing: '0.1em' }}
+            className="font-mono text-xs font-black uppercase tracking-widest text-muted"
+            style={{ letterSpacing: '0.1em' }}
           >
             {app.tech}
           </span>
@@ -44,14 +44,14 @@ function AppCard({ app, index, expanded, onToggle }: {
 
         {/* Name — headline scale */}
         <h3
-          className="text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150"
+          className="font-display text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150"
           style={{ color: expanded ? app.color : undefined, letterSpacing: '-0.03em' }}
         >
           {app.name}
         </h3>
 
         {/* Tagline */}
-        <p className="text-lg text-muted leading-snug mb-6">{app.tagline}</p>
+        <p className="font-serif text-lg text-muted leading-snug mb-6 italic">{app.tagline}</p>
 
         {/* Platform + Languages */}
         <div className="flex gap-6 pt-5 border-t border-edge">
@@ -60,12 +60,7 @@ function AppCard({ app, index, expanded, onToggle }: {
             { val: app.meta.languages, label: 'Languages' },
           ].map(({ val, label }) => (
             <div key={label}>
-              <p
-                className="text-base font-bold text-ink"
-                style={{ fontFamily: 'var(--font-family-mono)' }}
-              >
-                {val}
-              </p>
+              <p className="font-mono text-base font-bold text-ink">{val}</p>
               <p
                 className="text-xs font-black uppercase text-muted mt-0.5"
                 style={{ letterSpacing: '0.1em' }}
@@ -79,7 +74,7 @@ function AppCard({ app, index, expanded, onToggle }: {
         {/* Expanded detail */}
         {expanded && (
           <div className="mt-6 pt-6 border-t border-edge">
-            <p className="text-base text-muted leading-relaxed mb-5">{app.description}</p>
+            <p className="font-serif text-base text-muted leading-relaxed mb-5">{app.description}</p>
             <ul className="space-y-2">
               {app.features.map((f, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-base">
@@ -134,10 +129,7 @@ export default function AppList() {
           >
             Selected Work
           </h2>
-          <span
-            className="text-sm text-muted"
-            style={{ fontFamily: 'var(--font-family-mono)' }}
-          >
+          <span className="font-mono text-sm text-muted">
             {apps.length} projects
           </span>
         </div>

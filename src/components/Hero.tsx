@@ -6,7 +6,7 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
           {/* Name */}
           <h1
-            className="text-[17vw] sm:text-[13vw] lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink shrink-0"
+            className="font-display text-[17vw] sm:text-[13vw] lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink shrink-0"
             style={{ letterSpacing: "-0.03em" }}
           >
             Maaz
@@ -19,10 +19,7 @@ export default function Hero() {
             {/* Availability */}
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-              <span
-                className="text-xs uppercase tracking-widest text-accent font-semibold"
-                style={{ fontFamily: "var(--font-family-mono)" }}
-              >
+              <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
                 Available for work
               </span>
             </div>
@@ -30,7 +27,7 @@ export default function Hero() {
             {/* Role block */}
             <div className="border-l-2 border-ink pl-4">
               <p
-                className="text-2xl font-black text-ink leading-tight"
+                className="font-display text-2xl font-black text-ink leading-tight"
                 style={{ letterSpacing: '-0.02em' }}
               >
                 Senior iOS Engineer
@@ -44,7 +41,7 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-base text-ink leading-relaxed">
+            <p className="font-serif text-base text-ink leading-relaxed">
               Building polished, high-performance mobile apps used by hundreds
               of thousands of people.
             </p>
@@ -52,8 +49,8 @@ export default function Hero() {
             {/* Email */}
             <a
               href="mailto:hello@maazsurti.com"
-              className="text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
-              style={{ letterSpacing: '0.08em', fontFamily: 'var(--font-family-mono)' }}
+              className="font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
+              style={{ letterSpacing: '0.08em' }}
             >
               hello@maazsurti.com ↗
             </a>
@@ -68,10 +65,7 @@ export default function Hero() {
             { val: "6+", label: "Industries" },
           ].map(({ val, label }) => (
             <div key={label}>
-              <p
-                className="text-3xl sm:text-4xl font-black text-ink"
-                style={{ fontFamily: "var(--font-family-mono)" }}
-              >
+              <p className="font-mono text-3xl sm:text-4xl font-black text-ink">
                 {val}
               </p>
               <p
