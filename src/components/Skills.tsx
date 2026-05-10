@@ -14,10 +14,10 @@ const groups = [
   {
     label: 'AI & Workflows',
     items: [
-      'Proficient with AI coding tools (Claude, Cursor, Copilot)',
+      'AI coding tools (Claude, Cursor, Copilot)',
       'CLI-first workflows',
       'Markdown & config-driven AI alignment',
-      'Prompt engineering for dev tasks',
+      'Prompt engineering',
     ],
   },
   {
@@ -45,24 +45,26 @@ export default function Skills() {
           {groups.map(({ label, items }) => (
             <div
               key={label}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-16 py-6"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-16 py-7"
             >
               <p
-                className="text-xs font-black uppercase tracking-widest text-muted shrink-0 w-32 pt-0.5"
-                style={{ letterSpacing: '0.1em' }}
+                className="text-xs font-black uppercase tracking-widest text-muted shrink-0 w-32 pt-1"
+                style={{ letterSpacing: '0.12em' }}
               >
                 {label}
               </p>
-              <div className="flex flex-wrap gap-2">
-                {items.map((item) => (
-                  <span
-                    key={item}
-                    className="text-sm text-ink bg-surface border border-edge px-3 py-1 rounded"
-                  >
+
+              {/* Items as plain typographic text, not pill tags */}
+              <p className="text-lg font-semibold text-ink leading-relaxed">
+                {items.map((item, i) => (
+                  <span key={item}>
                     {item}
+                    {i < items.length - 1 && (
+                      <span className="text-muted mx-2 font-normal">·</span>
+                    )}
                   </span>
                 ))}
-              </div>
+              </p>
             </div>
           ))}
         </div>

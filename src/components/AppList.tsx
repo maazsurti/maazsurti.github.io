@@ -9,66 +9,66 @@ function AppCard({ app, index, expanded, onToggle }: {
 }) {
   return (
     <div
-      className="bg-surface cursor-pointer group"
+      className="bg-surface cursor-pointer group relative overflow-hidden"
       onClick={onToggle}
       style={{ borderTop: `3px solid ${expanded ? app.color : 'transparent'}` }}
     >
-      <div className="p-6 lg:p-8">
+      {/* Decorative large index — typographic texture */}
+      <span
+        className="absolute top-0 right-4 text-[8rem] font-black leading-none select-none pointer-events-none"
+        style={{ color: app.color, opacity: 0.07, letterSpacing: '-0.04em' }}
+      >
+        {String(index + 1).padStart(2, '0')}
+      </span>
+
+      <div className="p-6 lg:p-8 relative">
 
         {/* Meta row */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
             <span
-              className="text-sm font-semibold text-muted"
-              style={{ fontFamily: 'var(--font-family-mono)' }}
+              className="text-xs font-black uppercase tracking-widest text-muted"
+              style={{ letterSpacing: '0.1em' }}
             >
-              {String(index + 1).padStart(2, '0')}
+              {app.category}
             </span>
           </div>
-          <div
+          <span
             className="text-xs font-black uppercase tracking-widest text-muted"
-            style={{ letterSpacing: '0.1em' }}
+            style={{ fontFamily: 'var(--font-family-mono)', letterSpacing: '0.1em' }}
           >
-            {app.category}
-          </div>
+            {app.tech}
+          </span>
         </div>
 
-        {/* Name */}
+        {/* Name — headline scale */}
         <h3
-          className="text-3xl lg:text-4xl font-black mb-3 transition-colors duration-150 leading-none"
-          style={{ color: expanded ? app.color : undefined, letterSpacing: '-0.02em' }}
+          className="text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150"
+          style={{ color: expanded ? app.color : undefined, letterSpacing: '-0.03em' }}
         >
           {app.name}
         </h3>
 
         {/* Tagline */}
-        <p className="text-base text-muted mb-5 leading-relaxed">{app.tagline}</p>
+        <p className="text-lg text-muted leading-snug mb-6">{app.tagline}</p>
 
-        {/* Tech badge */}
-        <span
-          className="inline-block text-sm px-3 py-1 bg-bg border border-edge rounded text-ink"
-          style={{ fontFamily: 'var(--font-family-mono)' }}
-        >
-          {app.tech}
-        </span>
-
-        {/* Meta */}
-        <div className="mt-6 pt-5 border-t border-edge grid grid-cols-2 gap-3">
+        {/* Platform + Languages */}
+        <div className="flex gap-6 pt-5 border-t border-edge">
           {[
             { val: app.meta.platform, label: 'Platform' },
             { val: app.meta.languages, label: 'Languages' },
           ].map(({ val, label }) => (
             <div key={label}>
               <p
-                className="text-xl font-bold text-ink"
+                className="text-base font-bold text-ink"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
               >
                 {val}
               </p>
               <p
-                className="text-sm text-muted mt-0.5"
-                style={{ fontFamily: 'var(--font-family-mono)' }}
+                className="text-xs font-black uppercase text-muted mt-0.5"
+                style={{ letterSpacing: '0.1em' }}
               >
                 {label}
               </p>
@@ -127,8 +127,6 @@ export default function AppList() {
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-
-        {/* Section header */}
         <div className="flex items-baseline justify-between mb-10">
           <h2
             className="text-sm font-black uppercase tracking-widest text-ink"
