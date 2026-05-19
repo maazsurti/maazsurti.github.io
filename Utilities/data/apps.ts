@@ -1,4 +1,4 @@
-import { svgIcon, svgScreen } from '../utils/svg'
+import { svgIcon } from '../utils/svg'
 
 export interface AppStoreLinks {
   appStore: string | null;
@@ -33,6 +33,9 @@ export interface App {
   iconImage?: string;
 }
 
+const makeScreenshots = (id: number, labels: string[]): AppScreenshot[] =>
+  labels.map((label, i) => ({ label, src: `/screenshots/${id}/${i + 1}.png` }))
+
 const makeApp = (base: any): App => ({
   ...base,
   get iconImage() { return svgIcon(this.color, this.accent, this.icon) },
@@ -55,14 +58,7 @@ export const apps: App[] = [
     meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/secondhand-souq/id6741193174', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Browse', src: svgScreen(this.color, this.accent, 'Browse', 0) },
-        { label: 'Listing', src: svgScreen(this.color, '#6ee7b7', 'Listing', 1) },
-        { label: 'Sell', src: svgScreen(this.color, this.accent, 'Sell', 2) },
-        { label: 'Profile', src: svgScreen(this.color, '#a7f3d0', 'Profile', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(1, ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
   }),
   makeApp({
     id: 2, name: 'LorryNow', category: 'Logistics', tech: 'SwiftUI',
@@ -80,14 +76,7 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/lorrynow/id6746252731', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Book', src: svgScreen(this.color, this.accent, 'Book', 0) },
-        { label: 'Track', src: svgScreen(this.color, '#fdba74', 'Track', 1) },
-        { label: 'Pricing', src: svgScreen(this.color, this.accent, 'Pricing', 2) },
-        { label: 'History', src: svgScreen(this.color, '#fed7aa', 'History', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(2, ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
   }),
   makeApp({
     id: 3, name: 'Vite Kuwait', category: 'Events', tech: 'SwiftUI',
@@ -105,14 +94,7 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2025',
     stores: { appStore: 'https://apps.apple.com/in/app/vite-kuwait/id6755060002', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Events', src: svgScreen(this.color, this.accent, 'Events', 0) },
-        { label: 'Guests', src: svgScreen(this.color, '#c4b5fd', 'Guests', 1) },
-        { label: 'RSVPs', src: svgScreen(this.color, this.accent, 'RSVPs', 2) },
-        { label: 'Tracking', src: svgScreen(this.color, '#ddd6fe', 'Tracking', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(3, ['Events', 'Guests', 'RSVPs', 'Tracking', 'Invites']),
   }),
   makeApp({
     id: 4, name: 'Fit Habibi', category: 'Health & Fitness', tech: 'SwiftUI',
@@ -130,14 +112,7 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/fit-habibi/id6736990371', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Dashboard', src: svgScreen(this.color, this.accent, 'Dashboard', 0) },
-        { label: 'Programs', src: svgScreen(this.color, '#f9a8d4', 'Programs', 1) },
-        { label: 'Progress', src: svgScreen(this.color, this.accent, 'Progress', 2) },
-        { label: 'Schedule', src: svgScreen(this.color, '#fce7f3', 'Schedule', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(4, ['Dashboard', 'Programs', 'Progress', 'Schedule', 'Analytics']),
   }),
   makeApp({
     id: 5, name: 'Petbook Kuwait', category: 'Pet Services', tech: 'SwiftUI',
@@ -155,14 +130,7 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2023',
     stores: { appStore: 'https://apps.apple.com/us/app/petbook-kuwait/id6476278399', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Services', src: svgScreen(this.color, this.accent, 'Services', 0) },
-        { label: 'Book', src: svgScreen(this.color, '#fde68a', 'Book', 1) },
-        { label: 'Vets', src: svgScreen(this.color, this.accent, 'Vets', 2) },
-        { label: 'Profile', src: svgScreen(this.color, '#fef3c7', 'Profile', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(5, ['Services', 'Book', 'Vets', 'Profile', 'Supplies']),
   }),
   makeApp({
     id: 6, name: 'Reflex Kuwait', category: 'Health & Fitness', tech: 'Swift · UIKit',
@@ -180,13 +148,6 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN' },
     year: '2022',
     stores: { appStore: 'https://apps.apple.com/us/app/reflex-kuwait/id1640988212', playStore: null },
-    get screenshots() {
-      return [
-        { label: 'Home', src: svgScreen(this.color, this.accent, 'Home', 0) },
-        { label: 'Services', src: svgScreen(this.color, '#fca5a5', 'Services', 1) },
-        { label: 'Activities', src: svgScreen(this.color, this.accent, 'Activities', 2) },
-        { label: 'Members', src: svgScreen(this.color, '#fecaca', 'Members', 3) },
-      ]
-    },
+    screenshots: makeScreenshots(6, ['Home', 'Services', 'Activities', 'Members', 'Wellness']),
   }),
 ]
