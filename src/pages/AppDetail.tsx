@@ -5,7 +5,7 @@ import { apps } from '../../Utilities/data/apps';
 function ScreenshotPlaceholder({ color, label }: { color: string; label: string }) {
   return (
     <div
-      className="flex-none w-48 h-[26rem] rounded-2xl flex items-end p-4"
+      className="flex-none w-48 h-104 rounded-2xl flex items-end p-4"
       style={{ backgroundColor: color + '18', border: `1px solid ${color}30` }}
     >
       <span
@@ -20,7 +20,7 @@ function ScreenshotPlaceholder({ color, label }: { color: string; label: string 
 
 export default function AppDetail() {
   const { id } = useParams<{ id: string }>();
-  const app = apps.find(a => a.id === Number(id));
+  const app = apps.find(a => a.id === id);
   const [failedScreenshots, setFailedScreenshots] = useState<Set<number>>(new Set());
 
   useEffect(() => {
@@ -118,7 +118,7 @@ export default function AppDetail() {
                     src={s.src}
                     alt={s.label}
                     onError={() => handleImgError(i)}
-                    className="w-48 h-[26rem] object-cover rounded-2xl"
+                    className="w-48 h-104 object-cover rounded-2xl"
                     style={{ border: `1px solid ${app.color}20` }}
                   />
                   <span

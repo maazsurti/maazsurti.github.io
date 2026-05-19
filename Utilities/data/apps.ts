@@ -16,7 +16,7 @@ export interface AppScreenshot {
 }
 
 export interface App {
-  id: number;
+  id: string;
   name: string;
   category: string;
   tech: string;
@@ -33,7 +33,7 @@ export interface App {
   iconImage?: string;
 }
 
-const makeScreenshots = (id: number, labels: string[]): AppScreenshot[] =>
+const makeScreenshots = (id: string, labels: string[]): AppScreenshot[] =>
   labels.map((label, i) => ({ label, src: `/screenshots/${id}/${i + 1}.png` }))
 
 const makeApp = (base: any): App => ({
@@ -43,7 +43,7 @@ const makeApp = (base: any): App => ({
 
 export const apps: App[] = [
   makeApp({
-    id: 1, name: 'SecondHand Souq', category: 'Marketplace', tech: 'SwiftUI',
+    id: 'secondhand-souq', name: 'SecondHand Souq', category: 'Marketplace', tech: 'SwiftUI',
     color: '#10B981', accent: '#059669', icon: 'SS',
     tagline: "Kuwait's freshest way to buy and sell pre-loved items.",
     description: "End-to-end marketplace for buying and selling secondhand goods in Kuwait. Built with a single codebase targeting iPhone, macOS, and visionOS — with full English and Arabic localization and a privacy-first data architecture.",
@@ -58,10 +58,10 @@ export const apps: App[] = [
     meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/secondhand-souq/id6741193174', playStore: null },
-    screenshots: makeScreenshots(1, ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
+    screenshots: makeScreenshots('secondhand-souq', ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
   }),
   makeApp({
-    id: 2, name: 'LorryNow', category: 'Logistics', tech: 'SwiftUI',
+    id: 'lorrynow', name: 'LorryNow', category: 'Logistics', tech: 'SwiftUI',
     color: '#F97316', accent: '#EA580C', icon: 'LN',
     tagline: 'Move anything, anytime, on your fingertips.',
     description: 'On-demand logistics and transport booking for Kuwait. Instant booking across lorry types, real-time driver tracking, transparent pricing, and a helper add-on system — designed for reliability in time-sensitive deliveries.',
@@ -76,10 +76,10 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/lorrynow/id6746252731', playStore: null },
-    screenshots: makeScreenshots(2, ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
+    screenshots: makeScreenshots('lorrynow', ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
   }),
   makeApp({
-    id: 3, name: 'Vite Kuwait', category: 'Events', tech: 'SwiftUI',
+    id: 'vite-kuwait', name: 'Vite Kuwait', category: 'Events', tech: 'SwiftUI',
     color: '#8B5CF6', accent: '#7C3AED', icon: 'VK',
     tagline: 'Event invitations, managed end to end.',
     description: 'Digital invitation management platform for Kuwait events. Share your guest list and event details with the Vite team, who handle all digital invites, RSVPs, and attendance tracking — so the occasion runs smoothly.',
@@ -94,10 +94,10 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2025',
     stores: { appStore: 'https://apps.apple.com/in/app/vite-kuwait/id6755060002', playStore: null },
-    screenshots: makeScreenshots(3, ['Events', 'Guests', 'RSVPs', 'Tracking', 'Invites']),
+    screenshots: makeScreenshots('vite-kuwait', ['Events', 'Guests', 'RSVPs', 'Tracking', 'Invites']),
   }),
   makeApp({
-    id: 4, name: 'Fit Habibi', category: 'Health & Fitness', tech: 'SwiftUI',
+    id: 'fit-habibi', name: 'Fit Habibi', category: 'Health & Fitness', tech: 'SwiftUI',
     color: '#EC4899', accent: '#DB2777', icon: 'FH',
     tagline: 'Connecting coaches, gyms, and trainees.',
     description: 'Fitness platform for coaches and trainees in the Middle East. Coaches manage clients, training programs, and schedules from a dedicated dashboard. Trainees track workouts, progress, and appointments — with full English and Arabic support.',
@@ -112,10 +112,10 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/fit-habibi/id6736990371', playStore: null },
-    screenshots: makeScreenshots(4, ['Dashboard', 'Programs', 'Progress', 'Schedule', 'Analytics']),
+    screenshots: makeScreenshots('fit-habibi', ['Dashboard', 'Programs', 'Progress', 'Schedule', 'Analytics']),
   }),
   makeApp({
-    id: 5, name: 'Petbook Kuwait', category: 'Pet Services', tech: 'SwiftUI',
+    id: 'petbook-kuwait', name: 'Petbook Kuwait', category: 'Pet Services', tech: 'SwiftUI',
     color: '#F59E0B', accent: '#D97706', icon: 'PK',
     tagline: 'Every pet service in Kuwait, one app.',
     description: 'Comprehensive pet services marketplace for Kuwait. Owners can book grooming, sitting, walking, veterinary care, and training — with easy appointment scheduling and a curated supplies section, all in one place.',
@@ -130,10 +130,10 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2023',
     stores: { appStore: 'https://apps.apple.com/us/app/petbook-kuwait/id6476278399', playStore: null },
-    screenshots: makeScreenshots(5, ['Services', 'Book', 'Vets', 'Profile', 'Supplies']),
+    screenshots: makeScreenshots('petbook-kuwait', ['Services', 'Book', 'Vets', 'Profile', 'Supplies']),
   }),
   makeApp({
-    id: 6, name: 'Reflex Kuwait', category: 'Health & Fitness', tech: 'Swift · UIKit',
+    id: 'reflex-kuwait', name: 'Reflex Kuwait', category: 'Health & Fitness', tech: 'Swift · UIKit',
     color: '#EF4444', accent: '#DC2626', icon: 'RK',
     tagline: "Kuwait's premier health club, in your pocket.",
     description: "Mobile companion for Reflex Health Club — Kuwait's leading family entertainment and fitness institute. Members can explore and access the full range of club services including spa, swimming, cycling, and more.",
@@ -148,6 +148,6 @@ export const apps: App[] = [
     meta: { platform: 'iOS', languages: 'EN' },
     year: '2022',
     stores: { appStore: 'https://apps.apple.com/us/app/reflex-kuwait/id1640988212', playStore: null },
-    screenshots: makeScreenshots(6, ['Home', 'Services', 'Activities', 'Members', 'Wellness']),
+    screenshots: makeScreenshots('reflex-kuwait', ['Home', 'Services', 'Activities', 'Members', 'Wellness']),
   }),
 ]
