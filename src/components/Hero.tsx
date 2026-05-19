@@ -54,6 +54,16 @@ export default function Hero() {
             >
               hello@maazsurti.com ↗
             </a>
+
+            {/* Resume */}
+            <a
+              href="/resume.pdf"
+              download
+              className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150 self-start"
+              style={{ letterSpacing: '0.08em' }}
+            >
+              Download Resume ↓
+            </a>
           </div>
         </div>
 
