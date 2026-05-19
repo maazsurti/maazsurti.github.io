@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
 
           {/* Heading */}
           <div className="lg:max-w-sm">
@@ -26,9 +26,9 @@ export default function Contact() {
           {/* Links */}
           <div className="flex flex-col gap-5">
             {links.map(({ label, href, display }) => (
-              <div key={label} className="flex items-baseline gap-6">
+              <div key={label} className="grid items-baseline" style={{ gridTemplateColumns: '7rem 1fr' }}>
                 <span
-                  className="font-mono text-xs font-black uppercase text-muted w-20 shrink-0"
+                  className="font-mono text-xs font-black uppercase text-muted"
                   style={{ letterSpacing: '0.1em' }}
                 >
                   {label}
