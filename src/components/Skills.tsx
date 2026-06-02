@@ -16,13 +16,16 @@ const groups = [
     items: ['Flutter', 'Dart', 'JavaScript', 'HTML and CSS', 'SvelteKit'],
   },
   {
+    label: 'AI Workflows',
+    items: ['Agent skills', 'MCP servers', 'Tool-assisted development loops', 'Claude', 'Cursor'],
+  },
+  {
     label: 'Product Work',
     items: [
       'Client communication',
       'Feature scoping',
       'QA handoff',
       'App Store review',
-      'AI-assisted workflows',
     ],
   },
 ]
@@ -40,7 +43,8 @@ export default function Skills() {
           </h2>
           <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
             Practical mobile engineering skills for teams that need someone who
-            can build, stabilize, ship, and maintain real products.
+            can build, stabilize, ship, and improve real products with modern
+            AI-assisted workflows.
           </p>
         </div>
 

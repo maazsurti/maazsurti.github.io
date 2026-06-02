@@ -1,129 +1,98 @@
 export default function Hero() {
-  const proofPoints = [
-    'SwiftUI and UIKit production apps',
-    'Fastlane and GitHub Actions releases',
-    'English and Arabic product flows',
+  const stats = [
+    { val: '15+', label: 'Production Apps' },
+    { val: '5 Yrs', label: 'Mobile Experience' },
+    { val: '6', label: 'Featured Apps' },
   ];
 
   return (
-    <section className="px-6 lg:px-16 pt-14 pb-16 border-b border-edge">
+    <section className="px-6 lg:px-16 pt-12 lg:pt-16 pb-20 border-b border-edge">
       <div className="max-w-7xl mx-auto">
-        {/* Top row: name + right panel */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
-          {/* Name */}
-          <h1
-            className="font-display text-7xl sm:text-8xl lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink shrink-0"
-          >
-            Maaz
-            <br />
-            Surti.
-          </h1>
-
-          {/* Right panel */}
-          <div className="flex flex-col gap-6 lg:pb-3 lg:max-w-sm w-full">
-            {/* Availability */}
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-                  Open to senior iOS roles
-                </span>
-              </div>
-              <p
-                className="font-mono text-xs uppercase text-muted pl-[18px]"
-                style={{ letterSpacing: '0.1em' }}
-              >
-                Full-time or contract · Remote / hybrid
-              </p>
+        {/* First read: availability, name, and role */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_24rem] gap-12 lg:gap-20 items-end">
+          <div>
+            <div className="flex items-center gap-2.5 mb-10">
+              <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+              <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
+                Open to senior iOS roles
+              </span>
             </div>
 
-            {/* Role block */}
-            <div className="border-l-2 border-ink pl-4">
-              <p
-                className="font-display text-2xl font-black text-ink leading-tight"
-                style={{ letterSpacing: '-0.02em' }}
-              >
-                Senior iOS Engineer
-              </p>
-              <p
-                className="text-xs font-black uppercase tracking-widest text-muted mt-1.5"
-                style={{ letterSpacing: '0.12em' }}
-              >
-                Production mobile apps · App Store delivery
-              </p>
-              <p
-                className="text-xs font-black uppercase tracking-widest text-muted mt-1"
-                style={{ letterSpacing: '0.12em' }}
-              >
-                SwiftUI · UIKit · Flutter
-              </p>
-            </div>
+            <h1 className="font-display text-7xl sm:text-8xl lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink">
+              Maaz
+              <br />
+              Surti.
+            </h1>
+          </div>
 
-            {/* Description */}
-            <p className="font-serif text-base text-ink leading-relaxed">
-              I build polished iOS products in SwiftUI and UIKit, from architecture
-              and API integration to CI/CD and App Store release. 5 years, 15+
-              shipped apps across logistics, marketplaces, fitness, events, and
-              services, with selected live App Store work featured below.
+          <div className="lg:pb-4">
+            <p
+              className="font-mono text-xs font-black uppercase text-muted mb-4"
+              style={{ letterSpacing: '0.12em' }}
+            >
+              Senior iOS Engineer
             </p>
+            <p className="font-serif text-xl font-semibold text-ink leading-snug">
+              SwiftUI, UIKit, Flutter, CI/CD, App Store delivery, and AI-powered workflows.
+            </p>
+            <p className="font-serif text-base text-muted leading-relaxed mt-5">
+              Full-time or contract. Remote / hybrid.
+            </p>
+          </div>
+        </div>
 
-            {/* Proof points */}
-            <div className="divide-y divide-edge border-y border-edge">
-              {proofPoints.map(point => (
-                <p key={point} className="font-mono text-xs font-black uppercase text-ink py-3">
-                  {point}
-                </p>
-              ))}
-            </div>
+        {/* Second read: concise pitch and contact */}
+        <div className="mt-12 lg:mt-14 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_24rem] gap-8 lg:gap-20 items-start">
+          <p className="font-serif text-xl sm:text-2xl text-ink leading-relaxed max-w-3xl">
+            I help teams turn mobile product ideas into polished iOS apps,
+            owning the path from architecture and API integration through CI/CD
+            and App Store release. I am also deeply familiar with modern AI
+            workflows, including agent skills, MCP servers, and tool-assisted
+            development loops that make engineering teams move faster.
+          </p>
 
-            {/* Links */}
-            <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-3 lg:pt-2">
+            <a
+              href="mailto:hello@maazsurti.com"
+              className="font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
+              style={{ letterSpacing: '0.08em' }}
+            >
+              hello@maazsurti.com ↗
+            </a>
+            <div className="flex gap-5">
               <a
-                href="mailto:hello@maazsurti.com"
-                className="font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
+                href="https://linkedin.com/in/maazsurti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.08em' }}
               >
-                hello@maazsurti.com ↗
+                LinkedIn ↗
               </a>
-              <div className="flex gap-5">
-                <a
-                  href="https://linkedin.com/in/maazsurti"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
-                  style={{ letterSpacing: '0.08em' }}
-                >
-                  LinkedIn ↗
-                </a>
-                <a
-                  href="https://github.com/maazsurti"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
-                  style={{ letterSpacing: '0.08em' }}
-                >
-                  GitHub ↗
-                </a>
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
-                  style={{ letterSpacing: '0.08em' }}
-                >
-                  Resume ↓
-                </a>
-              </div>
+              <a
+                href="https://github.com/maazsurti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                style={{ letterSpacing: '0.08em' }}
+              >
+                GitHub ↗
+              </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                style={{ letterSpacing: '0.08em' }}
+              >
+                Resume ↓
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-14 pt-8 border-t border-edge flex flex-wrap gap-8 sm:gap-12 lg:gap-20">
-          {[
-            { val: "15+", label: "Production Apps" },
-            { val: "5 Yrs", label: "Mobile Experience" },
-            { val: "6", label: "Featured Apps" },
-          ].map(({ val, label }) => (
+        {/* Proof, kept quiet */}
+        <div className="mt-16 lg:mt-20 pt-8 border-t border-edge grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+          {stats.map(({ val, label }) => (
             <div key={label}>
               <p className="font-mono text-3xl sm:text-4xl font-black text-ink">
                 {val}
