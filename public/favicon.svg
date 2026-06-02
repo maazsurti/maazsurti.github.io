@@ -1,13 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" rx="6" fill="#111111"/>
-  <text
-    x="16"
-    y="22"
-    text-anchor="middle"
-    font-family="system-ui, -apple-system, sans-serif"
-    font-weight="900"
-    font-size="13"
-    letter-spacing="-0.5"
-    fill="#E5421E"
-  >MS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Maaz Surti">
+  <rect width="64" height="64" rx="16" fill="#111111" />
+  <path
+    d="M15 48V17l17 22 17-22v31"
+    fill="none"
+    stroke="#FAFAF8"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M47 13 26 53"
+    fill="none"
+    stroke="#E5421E"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <circle cx="47" cy="13" r="3.5" fill="#E5421E" />
 </svg>
