@@ -9,16 +9,16 @@ export interface TimelineItemData {
 export const timeline: TimelineItemData[] = [
   {
     year: '2022–Now',
-    role: 'iOS Developer',
+    role: 'Lead iOS Developer',
     company: 'Raw Code Developers',
     location: 'Kuwait City, Kuwait · Remote',
-    desc: 'Leading the mobile development team across iOS and Android. Spearheaded CI/CD pipelines with Fastlane and GitHub Actions, cutting release cycles from weeks to days. Shipped 8+ App Store apps for clients across logistics, marketplace, fitness, and business sectors.',
+    desc: 'Lead mobile delivery for client products across iOS and Android, with ownership from architecture and implementation through QA, CI/CD, and App Store release. Introduced Fastlane and GitHub Actions workflows that moved releases from week-scale handoffs to day-scale shipping. Shipped 8+ App Store apps across logistics, marketplaces, fitness, events, and service businesses.',
   },
   {
     year: '2020–2022',
     role: 'Junior iOS Developer',
     company: 'Technostacks Infotech Pvt. Ltd.',
     location: 'Ahmedabad, India',
-    desc: 'Built intuitive UIs with UIKit, Storyboard, and Interface Builder. Developed reusable custom UI components that accelerated delivery across multiple projects. Configured CI/CD pipelines and integrated RESTful APIs for data-driven features.',
+    desc: 'Built UIKit interfaces, reusable UI components, and API-driven features across client projects. Developed a strong foundation in debugging, release hygiene, REST integrations, and maintainable mobile UI delivery.',
   },
 ]

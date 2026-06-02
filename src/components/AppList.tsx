@@ -40,8 +40,8 @@ function AppCard({ app, index }: { app: App; index: number }) {
 
         {/* Name */}
         <h3
-          className="font-display text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150 group-hover:text-[var(--app-color)]"
-          style={{ letterSpacing: '-0.03em', '--app-color': app.color } as React.CSSProperties}
+          className="font-display text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150 group-hover:text-(--app-color)"
+          style={{ '--app-color': app.color } as React.CSSProperties}
         >
           {app.name}
         </h3>
@@ -49,11 +49,17 @@ function AppCard({ app, index }: { app: App; index: number }) {
         {/* Tagline */}
         <p className="font-serif text-lg text-muted leading-snug mb-6 italic">{app.tagline}</p>
 
-        {/* Platform + Languages */}
-        <div className="flex gap-6 pt-5 border-t border-edge">
+        {/* Recruiter-facing proof point */}
+        <p className="font-serif text-base text-ink leading-relaxed mb-6">
+          {app.impact}
+        </p>
+
+        {/* Platform + Languages + Year */}
+        <div className="flex flex-wrap gap-6 pt-5 border-t border-edge">
           {[
             { val: app.meta.platform, label: 'Platform' },
             { val: app.meta.languages, label: 'Languages' },
+            { val: app.year, label: 'Year' },
           ].map(({ val, label }) => (
             <div key={label}>
               <p className="font-mono text-base font-bold text-ink">{val}</p>
@@ -65,12 +71,21 @@ function AppCard({ app, index }: { app: App; index: number }) {
               </p>
             </div>
           ))}
-          <div className="ml-auto self-end">
+          <div className="ml-auto self-end flex items-center gap-2">
+            {app.stores.appStore && (
+              <span
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] font-black uppercase px-2 py-1 rounded-full border border-current text-muted group-hover:border-ink group-hover:text-ink transition-colors duration-150"
+                style={{ letterSpacing: '0.1em' }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
+                Live
+              </span>
+            )}
             <span
               className="font-mono text-xs font-black uppercase text-muted group-hover:text-ink transition-colors duration-150"
               style={{ letterSpacing: '0.1em' }}
             >
-              View ↗
+              ↗
             </span>
           </div>
         </div>
@@ -83,15 +98,21 @@ export default function AppList() {
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex items-baseline justify-between mb-10">
-          <h2
-            className="text-sm font-black uppercase tracking-widest text-ink"
-            style={{ letterSpacing: '0.15em' }}
-          >
-            Selected Work
-          </h2>
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4 mb-10">
+          <div>
+            <h2
+              className="text-sm font-black uppercase tracking-widest text-ink"
+              style={{ letterSpacing: '0.15em' }}
+            >
+              Selected Work
+            </h2>
+            <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
+              Production apps shipped for real clients across logistics, marketplaces,
+              events, fitness, and service businesses.
+            </p>
+          </div>
           <span className="font-mono text-sm text-muted">
-            {apps.length} projects
+            {apps.length} featured projects
           </span>
         </div>
 

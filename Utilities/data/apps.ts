@@ -24,6 +24,7 @@ export interface App {
   accent: string;
   icon: string;
   tagline: string;
+  impact: string;
   description: string;
   features: string[];
   meta: AppMeta;
@@ -34,44 +35,29 @@ export interface App {
 }
 
 const makeScreenshots = (id: string, labels: string[]): AppScreenshot[] =>
-  labels.map((label, i) => ({ label, src: `/screenshots/${id}/${i + 1}.png` }))
+  labels.map((label, i) => ({ label, src: `/screenshots/${id}/${i + 1}.jpg` }))
 
-const makeApp = (base: any): App => ({
+type AppInput = Omit<App, 'iconImage'>
+
+const makeApp = (base: AppInput): App => ({
   ...base,
-  get iconImage() { return svgIcon(this.color, this.accent, this.icon) },
+  iconImage: svgIcon(base.color, base.accent, base.icon),
 })
 
 export const apps: App[] = [
   makeApp({
-    id: 'secondhand-souq', name: 'SecondHand Souq', category: 'Marketplace', tech: 'SwiftUI',
-    color: '#10B981', accent: '#059669', icon: 'SS',
-    tagline: "Kuwait's freshest way to buy and sell pre-loved items.",
-    description: "End-to-end marketplace for buying and selling secondhand goods in Kuwait. Built with a single codebase targeting iPhone, macOS, and visionOS — with full English and Arabic localization and a privacy-first data architecture.",
-    features: [
-      'Listing, browsing & discovery experience',
-      'English + Arabic localization',
-      'iPhone, macOS & visionOS from one codebase',
-      'Apple privacy standards compliance',
-      'Buyer & seller confidence flows',
-      'Full App Store release lifecycle ownership',
-    ],
-    meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR' },
-    year: '2024',
-    stores: { appStore: 'https://apps.apple.com/in/app/secondhand-souq/id6741193174', playStore: null },
-    screenshots: makeScreenshots('secondhand-souq', ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
-  }),
-  makeApp({
     id: 'lorrynow', name: 'LorryNow', category: 'Logistics', tech: 'SwiftUI',
     color: '#F97316', accent: '#EA580C', icon: 'LN',
-    tagline: 'Move anything, anytime, on your fingertips.',
-    description: 'On-demand logistics and transport booking for Kuwait. Instant booking across lorry types, real-time driver tracking, transparent pricing, and a helper add-on system — designed for reliability in time-sensitive deliveries.',
+    tagline: 'On-demand logistics booking for time-sensitive moves.',
+    impact: 'Built the customer-facing booking, tracking, wallet, and bilingual service flows for a live logistics marketplace.',
+    description: 'A production logistics app for Kuwait customers booking transport across multiple lorry types. The experience needed to feel fast, predictable, and trustworthy from quote selection through driver tracking and payment.',
     features: [
-      'Instant lorry booking (open box, closed box, full lorry)',
-      'Real-time driver tracking',
-      'Transparent pricing & service options',
-      'Helper add-ons',
-      'Secure in-app payment wallet',
-      'English + Arabic localization',
+      'Instant booking across open box, closed box, and full lorry options',
+      'Real-time driver tracking for active moves',
+      'Transparent pricing, helper add-ons, and service configuration',
+      'Secure wallet and payment-ready flows',
+      'English and Arabic localization',
+      'App Store release support for a live client product',
     ],
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
@@ -79,17 +65,37 @@ export const apps: App[] = [
     screenshots: makeScreenshots('lorrynow', ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
   }),
   makeApp({
+    id: 'secondhand-souq', name: 'SecondHand Souq', category: 'Marketplace', tech: 'SwiftUI',
+    color: '#10B981', accent: '#059669', icon: 'SS',
+    tagline: 'A bilingual marketplace for pre-owned goods in Kuwait.',
+    impact: 'Owned a multi-platform SwiftUI marketplace release across iPhone, macOS, and visionOS with localized buyer and seller flows.',
+    description: 'A secondhand marketplace designed for browsing, listing, and discovering pre-owned goods. The product required clear trust cues, low-friction listing creation, and a codebase that could scale across Apple platforms.',
+    features: [
+      'Listing creation, browsing, search, and discovery flows',
+      'English and Arabic localization',
+      'iPhone, macOS, and visionOS from one SwiftUI codebase',
+      'Privacy-conscious data and permission handling',
+      'Buyer and seller confidence flows',
+      'App Store release lifecycle ownership',
+    ],
+    meta: { platform: 'iOS · macOS · visionOS', languages: 'EN + AR' },
+    year: '2024',
+    stores: { appStore: 'https://apps.apple.com/in/app/secondhand-souq/id6741193174', playStore: null },
+    screenshots: makeScreenshots('secondhand-souq', ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
+  }),
+  makeApp({
     id: 'vite-kuwait', name: 'Vite Kuwait', category: 'Events', tech: 'SwiftUI',
     color: '#8B5CF6', accent: '#7C3AED', icon: 'VK',
-    tagline: 'Event invitations, managed end to end.',
-    description: 'Digital invitation management platform for Kuwait events. Share your guest list and event details with the Vite team, who handle all digital invites, RSVPs, and attendance tracking — so the occasion runs smoothly.',
+    tagline: 'Digital invitation and RSVP management for events.',
+    impact: 'Delivered guest, RSVP, and attendance workflows that help event teams coordinate invites without spreadsheet-heavy operations.',
+    description: 'An event invitation platform for Kuwait, built around guest lists, digital invites, RSVPs, and attendance coordination. The app turns a high-touch service process into a clean mobile workflow for clients and organizers.',
     features: [
-      'Digital invitation creation & delivery',
+      'Digital invitation creation and delivery',
       'Guest list management',
       'RSVP tracking',
       'Attendance coordination',
       'Event detail sharing',
-      'Smooth occasion management',
+      'English and Arabic event workflows',
     ],
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2025',
@@ -99,15 +105,17 @@ export const apps: App[] = [
   makeApp({
     id: 'fit-habibi', name: 'Fit Habibi', category: 'Health & Fitness', tech: 'SwiftUI',
     color: '#EC4899', accent: '#DB2777', icon: 'FH',
-    tagline: 'Connecting coaches, gyms, and trainees.',
-    description: 'Fitness platform for coaches and trainees in the Middle East. Coaches manage clients, training programs, and schedules from a dedicated dashboard. Trainees track workouts, progress, and appointments — with full English and Arabic support.',
+    tagline: 'Coach and trainee workflows for modern fitness teams.',
+    impact: 'Built mobile workflows for coaches, trainees, programs, schedules, and progress tracking in a bilingual fitness product.',
+    description: 'A fitness platform for coaches and trainees in the Middle East. The product supports client management, workout planning, appointment scheduling, and progress visibility across both coach-facing and trainee-facing journeys.',
     features: [
       'Coach-facing client management dashboard',
-      'Workout creation & exercise libraries',
+      'Workout creation and exercise libraries',
       'Training program scheduling',
       'Client progress analytics',
-      'Subscription & session management',
-      'English + Arabic localization',
+      'Subscription and session management',
+      'English and Arabic localization',
+      'Reusable SwiftUI patterns for repeated fitness workflows',
     ],
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2024',
@@ -117,15 +125,16 @@ export const apps: App[] = [
   makeApp({
     id: 'petbook-kuwait', name: 'Petbook Kuwait', category: 'Pet Services', tech: 'SwiftUI',
     color: '#F59E0B', accent: '#D97706', icon: 'PK',
-    tagline: 'Every pet service in Kuwait, one app.',
-    description: 'Comprehensive pet services marketplace for Kuwait. Owners can book grooming, sitting, walking, veterinary care, and training — with easy appointment scheduling and a curated supplies section, all in one place.',
+    tagline: 'Pet services, booking, and supplies in one mobile app.',
+    impact: 'Shipped marketplace-style booking flows for grooming, veterinary care, walking, sitting, training, and pet supplies.',
+    description: 'A pet services marketplace for Kuwait customers who need booking, service discovery, and supplies in one place. The app brings multiple appointment-heavy categories into a single mobile experience.',
     features: [
       'Grooming appointment booking',
-      'Pet sitting & walking services',
+      'Pet sitting and walking services',
       'Veterinary care access',
       'Training services',
       'Pet supplies store',
-      'Easy scheduling & management',
+      'Easy scheduling and appointment management',
     ],
     meta: { platform: 'iOS', languages: 'EN + AR' },
     year: '2023',
@@ -135,15 +144,17 @@ export const apps: App[] = [
   makeApp({
     id: 'reflex-kuwait', name: 'Reflex Kuwait', category: 'Health & Fitness', tech: 'Swift · UIKit',
     color: '#EF4444', accent: '#DC2626', icon: 'RK',
-    tagline: "Kuwait's premier health club, in your pocket.",
-    description: "Mobile companion for Reflex Health Club — Kuwait's leading family entertainment and fitness institute. Members can explore and access the full range of club services including spa, swimming, cycling, and more.",
+    tagline: 'A mobile companion for Kuwait health club members.',
+    impact: 'Delivered a UIKit-based member app that makes club services easier to discover, navigate, and access on mobile.',
+    description: 'A mobile companion for Reflex Health Club, designed to help members explore services and activities across wellness, fitness, and family entertainment. The app focuses on clear navigation and approachable service discovery.',
     features: [
       'Full club services directory',
-      'SPA & wellness access',
-      'Swimming & cycling activities',
+      'Spa and wellness access',
+      'Swimming and cycling activities',
       'Family entertainment hub',
-      'Member access & info',
-      'Service discovery & navigation',
+      'Member access and information',
+      'Service discovery and navigation',
+      'UIKit implementation for an established client brand',
     ],
     meta: { platform: 'iOS', languages: 'EN' },
     year: '2022',

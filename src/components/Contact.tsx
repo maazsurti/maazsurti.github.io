@@ -19,7 +19,9 @@ export default function Contact() {
               Let's work<br />together.
             </h2>
             <p className="font-serif text-base text-muted leading-relaxed">
-              Open to senior iOS roles, contract work, and interesting product problems.
+              Hiring for a senior iOS engineer who can own product quality from
+              first build to App Store release? I am open to full-time roles,
+              contract work, and focused mobile product engagements.
             </p>
           </div>
 

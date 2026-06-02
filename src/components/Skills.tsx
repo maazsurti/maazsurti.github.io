@@ -1,31 +1,28 @@
 const groups = [
   {
-    label: 'Languages',
-    items: ['Swift', 'Objective-C', 'Dart', 'JavaScript', 'HTML · CSS'],
+    label: 'Apple Stack',
+    items: ['Swift', 'SwiftUI', 'UIKit', 'Objective-C', 'App Store Connect'],
   },
   {
-    label: 'Frameworks',
-    items: ['SwiftUI', 'UIKit', 'Flutter', 'SvelteKit'],
+    label: 'Mobile Delivery',
+    items: ['Architecture', 'REST APIs', 'Localization', 'Debugging', 'Release readiness'],
   },
   {
-    label: 'Dev Tools',
-    items: ['Xcode', 'Fastlane', 'GitHub Actions', 'Git', 'VS Code'],
+    label: 'CI/CD',
+    items: ['Fastlane', 'GitHub Actions', 'Xcode', 'Git', 'Automated build pipelines'],
   },
   {
-    label: 'AI & Workflows',
+    label: 'Cross-platform',
+    items: ['Flutter', 'Dart', 'JavaScript', 'HTML and CSS', 'SvelteKit'],
+  },
+  {
+    label: 'Product Work',
     items: [
-      'AI coding tools (Claude, Cursor, Copilot)',
-      'CLI-first workflows',
-      'Markdown & config-driven AI alignment',
-      'Prompt engineering',
-    ],
-  },
-  {
-    label: 'Industry',
-    items: [
-      'Latest iOS & Swift evolution',
-      'AI trends in mobile & product',
-      'App Store ecosystem & guidelines',
+      'Client communication',
+      'Feature scoping',
+      'QA handoff',
+      'App Store review',
+      'AI-assisted workflows',
     ],
   },
 ]
@@ -34,12 +31,18 @@ export default function Skills() {
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <h2
-          className="text-sm font-black uppercase tracking-widest text-ink mb-12"
-          style={{ letterSpacing: '0.15em' }}
-        >
-          Skills & Tools
-        </h2>
+        <div className="mb-12">
+          <h2
+            className="text-sm font-black uppercase tracking-widest text-ink"
+            style={{ letterSpacing: '0.15em' }}
+          >
+            Skills & Tools
+          </h2>
+          <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
+            Practical mobile engineering skills for teams that need someone who
+            can build, stabilize, ship, and maintain real products.
+          </p>
+        </div>
 
         <div className="divide-y divide-edge">
           {groups.map(({ label, items }) => (

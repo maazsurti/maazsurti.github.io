@@ -4,12 +4,18 @@ export default function Timeline() {
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <h2
-          className="text-sm font-black uppercase tracking-widest text-ink mb-12"
-          style={{ letterSpacing: '0.15em' }}
-        >
-          Experience
-        </h2>
+        <div className="mb-12">
+          <h2
+            className="text-sm font-black uppercase tracking-widest text-ink"
+            style={{ letterSpacing: '0.15em' }}
+          >
+            Experience
+          </h2>
+          <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
+            Five years building client-facing mobile products, with recent focus
+            on senior ownership, release systems, and App Store delivery.
+          </p>
+        </div>
 
         <div>
           {timeline.map((item, i) => (
@@ -20,7 +26,6 @@ export default function Timeline() {
               {/* Year */}
               <div
                 className="font-mono text-xl font-black text-muted shrink-0 w-28 pt-1"
-                style={{ letterSpacing: '-0.02em' }}
               >
                 {item.year}
               </div>
@@ -29,7 +34,6 @@ export default function Timeline() {
                 {/* Role — headline scale */}
                 <p
                   className="font-display font-black text-3xl lg:text-4xl text-ink group-hover:text-accent transition-colors duration-150 leading-none mb-3"
-                  style={{ letterSpacing: '-0.02em' }}
                 >
                   {item.role}
                 </p>

@@ -5,7 +5,7 @@ import { apps } from '../../Utilities/data/apps';
 function ScreenshotPlaceholder({ color, label }: { color: string; label: string }) {
   return (
     <div
-      className="flex-none w-48 h-104 rounded-2xl flex items-end p-4"
+      className="flex-none w-56 h-120 rounded-2xl flex items-end p-4"
       style={{ backgroundColor: color + '18', border: `1px solid ${color}30` }}
     >
       <span
@@ -24,8 +24,8 @@ export default function AppDetail() {
   const [failedScreenshots, setFailedScreenshots] = useState<Set<number>>(new Set());
 
   useEffect(() => {
-    if (app) document.title = `${app.name} — Maaz Surti`;
-    return () => { document.title = 'Maaz Surti — Senior iOS Engineer'; };
+    if (app) document.title = `${app.name} - Maaz Surti`;
+    return () => { document.title = 'Maaz Surti - Senior iOS Engineer'; };
   }, [app]);
 
   if (!app) {
@@ -73,29 +73,67 @@ export default function AppDetail() {
 
       {/* Header */}
       <div className="px-6 lg:px-16 pt-12 pb-10 border-b border-edge">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
-            <span
-              className="font-mono text-xs font-black uppercase text-muted"
-              style={{ letterSpacing: '0.12em' }}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end">
+
+          {/* Left: meta + title + tagline + CTA */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
+              <span
+                className="font-mono text-xs font-black uppercase text-muted"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                {app.tech} · {app.year}
+              </span>
+            </div>
+            <h1
+              className="font-display font-black leading-none mb-4"
+              style={{
+                color: app.color,
+                letterSpacing: '-0.03em',
+                fontSize: 'clamp(3rem, 8vw, 7rem)',
+              }}
             >
-              {app.tech} · {app.year}
-            </span>
+              {app.name}
+            </h1>
+            <p className="font-serif text-xl text-muted italic leading-snug max-w-lg mb-6">
+              {app.tagline}
+            </p>
+            <p className="font-serif text-base text-ink leading-relaxed max-w-2xl mb-6">
+              {app.impact}
+            </p>
+            {app.stores.appStore && (
+              <a
+                href={app.stores.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:bg-ink hover:text-surface transition-colors duration-150"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
+                Live on App Store ↗
+              </a>
+            )}
           </div>
-          <h1
-            className="font-display font-black leading-none mb-4"
-            style={{
-              color: app.color,
-              letterSpacing: '-0.03em',
-              fontSize: 'clamp(3rem, 8vw, 7rem)',
-            }}
-          >
-            {app.name}
-          </h1>
-          <p className="font-serif text-xl text-muted italic leading-snug max-w-lg">
-            {app.tagline}
-          </p>
+
+          {/* Right: hero screenshot (desktop only) */}
+          <div className="hidden lg:block">
+            {!failedScreenshots.has(0) ? (
+              <img
+                src={app.screenshots[0].src}
+                alt={`${app.name} screenshot`}
+                onError={() => handleImgError(0)}
+                className="w-40 h-88 object-cover object-top rounded-2xl"
+                style={{ border: `1.5px solid ${app.color}30` }}
+              />
+            ) : (
+              <div
+                className="w-40 h-88 rounded-2xl"
+                style={{ backgroundColor: app.color + '18', border: `1.5px solid ${app.color}30` }}
+              />
+            )}
+          </div>
+
         </div>
       </div>
 
@@ -113,16 +151,16 @@ export default function AppDetail() {
               failedScreenshots.has(i) ? (
                 <ScreenshotPlaceholder key={i} color={app.color} label={s.label} />
               ) : (
-                <div key={i} className="flex-none relative group">
+                <div key={i} className="flex-none relative">
                   <img
                     src={s.src}
                     alt={s.label}
                     onError={() => handleImgError(i)}
-                    className="w-48 h-104 object-cover rounded-2xl"
-                    style={{ border: `1px solid ${app.color}20` }}
+                    className="w-56 h-120 object-cover object-top rounded-2xl"
+                    style={{ border: `1px solid ${app.color}25` }}
                   />
                   <span
-                    className="absolute bottom-3 left-3 font-mono text-xs font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                    className="absolute bottom-3 left-3 font-mono text-xs font-black uppercase"
                     style={{ color: app.color, letterSpacing: '0.1em' }}
                   >
                     {s.label}
@@ -145,6 +183,15 @@ export default function AppDetail() {
               About
             </p>
             <p className="font-serif text-lg text-ink leading-relaxed">{app.description}</p>
+            <div className="mt-8 border-l-2 pl-5" style={{ borderColor: app.color }}>
+              <p
+                className="font-mono text-xs font-black uppercase text-muted mb-3"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                Contribution
+              </p>
+              <p className="font-serif text-base text-ink leading-relaxed">{app.impact}</p>
+            </div>
           </div>
           <div>
             <p
