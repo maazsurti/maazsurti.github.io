@@ -159,12 +159,6 @@ export default function AppDetail() {
                     className="w-56 h-120 object-cover object-top rounded-2xl"
                     style={{ border: `1px solid ${app.color}25` }}
                   />
-                  <span
-                    className="absolute bottom-3 left-3 font-mono text-xs font-black uppercase"
-                    style={{ color: app.color, letterSpacing: '0.1em' }}
-                  >
-                    {s.label}
-                  </span>
                 </div>
               )
             )}
