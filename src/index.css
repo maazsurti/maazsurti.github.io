@@ -137,6 +137,32 @@ a {
   animation: dot-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Image loading: a soft sheen sweeps across the tinted placeholder. */
+@keyframes shimmer-sweep {
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(120%); }
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: shimmer-sweep 1.5s ease-in-out infinite;
+}
+
 /* Scroll-reveal: hidden until observed, then transitions in. */
 .reveal {
   opacity: 0;
@@ -150,23 +176,29 @@ a {
   transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .enter, .enter-clip,
-  .loaded .enter, .loaded .enter-clip {
-    opacity: 1;
-    animation: none;
-  }
-  .dot-ping::after { animation: none; }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .loader, .loader-name, .loader-bar {
-    animation: none;
-    transition: none;
-  }
-  .loader-name { opacity: 1; }
-  .loader-bar { transform: scaleX(1); }
+/* Reduced motion. Driven by a `reduce-motion` class on <html> (set in
+   main.tsx) so it tracks the OS preference but can also be forced on/off —
+   prefers-reduced-motion itself is OS-level and not settable from JS. */
+html.reduce-motion { scroll-behavior: auto; }
+.reduce-motion .enter,
+.reduce-motion .enter-clip,
+.reduce-motion .loaded .enter,
+.reduce-motion .loaded .enter-clip {
+  opacity: 1;
+  animation: none;
 }
+.reduce-motion .dot-ping::after { animation: none; }
+.reduce-motion .shimmer::after { animation: none; }
+.reduce-motion .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.reduce-motion .loader,
+.reduce-motion .loader-name,
+.reduce-motion .loader-bar {
+  animation: none;
+  transition: none;
+}
+.reduce-motion .loader-name { opacity: 1; }
+.reduce-motion .loader-bar { transform: scaleX(1); }

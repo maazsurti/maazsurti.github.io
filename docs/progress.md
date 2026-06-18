@@ -28,3 +28,10 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 - Detail-page entrance: main blocks (nav → header → screenshots → about → meta) rise in with a tight 0.06s stagger, reusing the `.enter` mechanism.
 - Detail-page navigation snaps to top via `scrollTo({ behavior: 'instant' })` — the `html { scroll-behavior: smooth }` rule was animating the reset, which read as an unwanted scroll-up.
 - Verified: lint clean, build green.
+
+## Reduce-motion control & image shimmer — 2026-06-18
+
+- Reduced motion now driven by a `reduce-motion` class on `<html>` (set in `main.tsx`), seeded from the OS preference but overridable via localStorage — `prefers-reduced-motion` itself is OS-level and not settable from JS.
+- Dev-only `MotionToggle` (rendered only under `import.meta.env.DEV`) forces reduced motion on/off to preview the reduced experience on a device where the OS preference is off.
+- Screenshots on the detail page load through `ShotImage`: a tinted placeholder with a soft sheen sweep (`shimmer`) that crossfades to the image on load, falling back to a colour block on error. Replaced the old `failedScreenshots` state machinery.
+- Verified: lint clean, build green.

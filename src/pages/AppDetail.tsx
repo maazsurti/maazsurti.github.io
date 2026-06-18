@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { apps } from '../../Utilities/data/apps';
 
-function ScreenshotPlaceholder({ color, label }: { color: string; label: string }) {
+function ScreenshotPlaceholder({
+  color,
+  label,
+  className,
+}: {
+  color: string;
+  label: string;
+  className: string;
+}) {
   return (
     <div
-      className="flex-none w-56 h-120 rounded-2xl flex items-end p-4"
+      className={`flex items-end p-4 ${className}`}
       style={{ backgroundColor: color + '18', border: `1px solid ${color}30` }}
     >
       <span
@@ -18,10 +26,51 @@ function ScreenshotPlaceholder({ color, label }: { color: string; label: string 
   );
 }
 
+/** Screenshot with a shimmer placeholder that crossfades to the image on load. */
+function ShotImage({
+  src,
+  alt,
+  color,
+  label,
+  className,
+}: {
+  src: string;
+  alt: string;
+  color: string;
+  label: string;
+  className: string;
+}) {
+  const [state, setState] = useState<'loading' | 'loaded' | 'error'>('loading');
+
+  if (state === 'error') {
+    return <ScreenshotPlaceholder color={color} label={label} className={className} />;
+  }
+
+  return (
+    <div
+      className={`relative overflow-hidden ${className}`}
+      style={{ backgroundColor: color + '14', border: `1px solid ${color}30` }}
+    >
+      {state === 'loading' && (
+        <span className="shimmer" style={{ backgroundColor: color + '10' }} />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setState('loaded')}
+        onError={() => setState('error')}
+        className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
+          state === 'loaded' ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </div>
+  );
+}
+
 export default function AppDetail() {
   const { id } = useParams<{ id: string }>();
   const app = apps.find(a => a.id === id);
-  const [failedScreenshots, setFailedScreenshots] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     if (app) document.title = `${app.name} - Maaz Surti`;
@@ -44,10 +93,6 @@ export default function AppDetail() {
       </div>
     );
   }
-
-  const handleImgError = (index: number) => {
-    setFailedScreenshots(prev => new Set(prev).add(index));
-  };
 
   return (
     <div className="min-h-screen bg-bg text-ink">
@@ -118,20 +163,13 @@ export default function AppDetail() {
 
           {/* Right: hero screenshot (desktop only) */}
           <div className="hidden lg:block">
-            {!failedScreenshots.has(0) ? (
-              <img
-                src={app.screenshots[0].src}
-                alt={`${app.name} screenshot`}
-                onError={() => handleImgError(0)}
-                className="w-40 h-88 object-cover object-top rounded-2xl"
-                style={{ border: `1.5px solid ${app.color}30` }}
-              />
-            ) : (
-              <div
-                className="w-40 h-88 rounded-2xl"
-                style={{ backgroundColor: app.color + '18', border: `1.5px solid ${app.color}30` }}
-              />
-            )}
+            <ShotImage
+              src={app.screenshots[0].src}
+              alt={`${app.name} screenshot`}
+              color={app.color}
+              label={app.screenshots[0].label}
+              className="w-40 h-88 rounded-2xl"
+            />
           </div>
 
         </div>
@@ -147,21 +185,16 @@ export default function AppDetail() {
             Screenshots
           </p>
           <div className="flex gap-4 overflow-x-auto pb-4 pr-6 lg:pr-16" style={{ scrollbarWidth: 'none' }}>
-            {app.screenshots.map((s, i) =>
-              failedScreenshots.has(i) ? (
-                <ScreenshotPlaceholder key={i} color={app.color} label={s.label} />
-              ) : (
-                <div key={i} className="flex-none relative">
-                  <img
-                    src={s.src}
-                    alt={s.label}
-                    onError={() => handleImgError(i)}
-                    className="w-56 h-120 object-cover object-top rounded-2xl"
-                    style={{ border: `1px solid ${app.color}25` }}
-                  />
-                </div>
-              )
-            )}
+            {app.screenshots.map((s, i) => (
+              <ShotImage
+                key={i}
+                src={s.src}
+                alt={s.label}
+                color={app.color}
+                label={s.label}
+                className="flex-none w-56 h-120 rounded-2xl"
+              />
+            ))}
           </div>
         </div>
       </div>

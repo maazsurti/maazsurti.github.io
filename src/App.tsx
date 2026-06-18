@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader';
+import MotionToggle from './components/MotionToggle';
 import ScrollToTop from './components/ScrollToTop';
 import AppDetail from './pages/AppDetail';
 import Hero from './components/Hero';
@@ -26,6 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <Loader />
+      {import.meta.env.DEV && <MotionToggle />}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
