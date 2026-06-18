@@ -31,7 +31,10 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display text-7xl sm:text-8xl lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink">
+            <h1
+              className="font-display font-black leading-[0.88] uppercase text-ink"
+              style={{ fontSize: 'clamp(3.25rem, 14vw, 8.5rem)' }}
+            >
               <span className="enter-clip block" style={{ animationDelay: '0.15s' }}>
                 Maaz
               </span>
