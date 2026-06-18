@@ -152,7 +152,7 @@ export default function AppDetail() {
                 href={app.stores.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:bg-ink hover:text-surface transition-colors duration-150"
+                className="inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:border-accent hover:text-accent transition-colors duration-150"
                 style={{ letterSpacing: '0.12em' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
