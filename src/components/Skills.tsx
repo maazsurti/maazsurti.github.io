@@ -15,7 +15,7 @@ const groups = [
   },
   {
     label: 'Cross-platform',
-    items: ['Flutter', 'Dart', 'JavaScript', 'HTML and CSS', 'SvelteKit'],
+    items: ['React Native', 'Flutter', 'Dart', 'TypeScript', 'JavaScript', 'SvelteKit'],
   },
   {
     label: 'AI Workflows',

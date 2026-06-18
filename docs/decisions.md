@@ -10,7 +10,7 @@ Read this before changing anything structural. No implementation detail or code 
 
 **Decision:** Cream background, near-black ink, single restrained accent (`#E5421E`), serif display typography. No dark mode, no glassmorphism, no gradient text.
 
-**Why:** Recruiter-facing portfolio for a senior iOS engineer; restraint reads as craft. Trend-driven effects date quickly and dilute the signal.
+**Why:** Recruiter-facing portfolio for a senior mobile developer; restraint reads as craft. Trend-driven effects date quickly and dilute the signal.
 
 **Consequences / constraints:** New UI must use the existing theme tokens. No second accent colour. Per-app colours are the only sanctioned colour variation.
 

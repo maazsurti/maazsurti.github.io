@@ -74,7 +74,7 @@ export default function AppDetail() {
 
   useEffect(() => {
     if (app) document.title = `${app.name} - Maaz Surti`;
-    return () => { document.title = 'Maaz Surti - Senior iOS Engineer'; };
+    return () => { document.title = 'Maaz Surti - Senior Mobile Developer'; };
   }, [app]);
 
   if (!app) {
@@ -147,6 +147,17 @@ export default function AppDetail() {
             <p className="font-serif text-base text-ink leading-relaxed max-w-2xl mb-6">
               {app.impact}
             </p>
+            <div className="flex flex-wrap gap-2.5 mb-6">
+              {[app.tech, app.meta.platform, app.meta.languages, 'Live App Store product'].map(item => (
+                <span
+                  key={item}
+                  className="font-mono text-[11px] font-black uppercase px-3 py-1.5 border border-edge text-ink bg-surface"
+                  style={{ letterSpacing: '0.08em' }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
             {app.stores.appStore && (
               <a
                 href={app.stores.appStore}
@@ -199,25 +210,35 @@ export default function AppDetail() {
         </div>
       </div>
 
-      {/* Description + Features */}
+      {/* Case study + Features */}
       <div className="enter px-6 lg:px-16 py-14 border-b border-edge" style={{ animationDelay: '0.18s' }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20">
           <div>
             <p
               className="font-mono text-xs font-black uppercase text-muted mb-5"
               style={{ letterSpacing: '0.12em' }}
             >
-              About
+              Case Study
             </p>
             <p className="font-serif text-lg text-ink leading-relaxed">{app.description}</p>
-            <div className="mt-8 border-l-2 pl-5" style={{ borderColor: app.color }}>
-              <p
-                className="font-mono text-xs font-black uppercase text-muted mb-3"
-                style={{ letterSpacing: '0.12em' }}
-              >
-                Contribution
-              </p>
-              <p className="font-serif text-base text-ink leading-relaxed">{app.impact}</p>
+
+            <div className="mt-8 divide-y divide-edge border-t border-edge">
+              {[
+                { label: 'Problem', value: app.caseStudy.problem },
+                { label: 'My Ownership', value: app.caseStudy.ownership },
+                { label: 'Technical Decisions', value: app.caseStudy.technical },
+                { label: 'Outcome', value: app.caseStudy.outcome },
+              ].map(({ label, value }) => (
+                <div key={label} className="grid grid-cols-1 sm:grid-cols-[10rem_1fr] gap-2 sm:gap-6 py-5">
+                  <p
+                    className="font-mono text-xs font-black uppercase text-muted pt-1"
+                    style={{ letterSpacing: '0.1em' }}
+                  >
+                    {label}
+                  </p>
+                  <p className="font-serif text-base text-ink leading-relaxed">{value}</p>
+                </div>
+              ))}
             </div>
           </div>
           <div>
@@ -241,7 +262,7 @@ export default function AppDetail() {
 
       {/* Meta + CTA */}
       <div className="enter px-6 lg:px-16 py-12" style={{ animationDelay: '0.24s' }}>
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="flex gap-10">
             {[
               { val: app.meta.platform, label: 'Platform' },
@@ -259,17 +280,26 @@ export default function AppDetail() {
               </div>
             ))}
           </div>
-          {app.stores.appStore && (
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <a
-              href={app.stores.appStore}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:hello@maazsurti.com?subject=Senior%20mobile%20developer%20role"
               className="inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
               style={{ letterSpacing: '0.12em' }}
             >
-              View on App Store ↗
+              Hiring for mobile delivery? ↗
             </a>
-          )}
+            {app.stores.appStore && (
+              <a
+                href={app.stores.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                style={{ letterSpacing: '0.12em' }}
+              >
+                View on App Store ↗
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -33,7 +33,16 @@ function TimelineRow({ item, index }: { item: Entry; index: number }) {
         {/* Location */}
         <p className="font-mono text-sm text-muted mb-5">{item.location}</p>
 
-        <p className="font-serif text-base text-muted leading-relaxed">{item.desc}</p>
+        <p className="font-serif text-base text-muted leading-relaxed mb-5">{item.desc}</p>
+
+        <ul className="space-y-3">
+          {item.highlights.map(highlight => (
+            <li key={highlight} className="flex items-start gap-3">
+              <span className="shrink-0 mt-0.5 font-black text-accent">-</span>
+              <span className="font-serif text-base text-ink leading-snug">{highlight}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -57,7 +66,8 @@ export default function Timeline() {
           </h2>
           <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
             Five years building client-facing mobile products, with recent focus
-            on senior ownership, release systems, and App Store delivery.
+            on senior ownership, release systems, cross-platform delivery, and
+            App Store launches.
           </p>
         </div>
 

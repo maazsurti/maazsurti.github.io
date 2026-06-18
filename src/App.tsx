@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader';
 import MotionToggle from './components/MotionToggle';
+import RefinedScroll from './components/RefinedScroll';
 import ScrollToTop from './components/ScrollToTop';
 import AppDetail from './pages/AppDetail';
 import Hero from './components/Hero';
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
       <Loader />
       {import.meta.env.DEV && <MotionToggle />}
+      <RefinedScroll />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

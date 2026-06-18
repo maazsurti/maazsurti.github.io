@@ -2,7 +2,17 @@ export default function Hero() {
   const stats = [
     { val: '15+', label: 'Production Apps' },
     { val: '5 Yrs', label: 'Mobile Experience' },
-    { val: '6', label: 'Featured Apps' },
+    { val: '8+', label: 'App Store Releases' },
+  ];
+  const ownership = [
+    'Architecture',
+    'SwiftUI/UIKit',
+    'React Native',
+    'Flutter',
+    'API integration',
+    'Localization',
+    'CI/CD',
+    'App Store release',
   ];
 
   return (
@@ -17,7 +27,7 @@ export default function Hero() {
                 <span className="relative inline-flex w-2 h-2 rounded-full bg-accent" />
               </span>
               <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-                Open to senior iOS roles
+                Open to senior mobile developer roles
               </span>
             </div>
 
@@ -36,10 +46,10 @@ export default function Hero() {
               className="font-mono text-xs font-black uppercase text-muted mb-4"
               style={{ letterSpacing: '0.12em' }}
             >
-              Senior iOS Engineer
+              Senior Mobile Developer
             </p>
             <p className="font-serif text-xl font-semibold text-ink leading-snug">
-              SwiftUI, UIKit, Flutter, CI/CD, App Store delivery, and AI-powered workflows.
+              iOS, React Native, Flutter, CI/CD, App Store delivery, and AI-assisted engineering workflows.
             </p>
             <p className="font-serif text-base text-muted leading-relaxed mt-5">
               Full-time or contract. Remote / hybrid.
@@ -50,11 +60,10 @@ export default function Hero() {
         {/* Second read: concise pitch and contact */}
         <div className="mt-12 lg:mt-14 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_24rem] gap-8 lg:gap-20 items-start">
           <p className="enter font-serif text-xl sm:text-2xl text-ink leading-relaxed max-w-3xl" style={{ animationDelay: '0.6s' }}>
-            I help teams turn mobile product ideas into polished iOS apps,
-            owning the path from architecture and API integration through CI/CD
-            and App Store release. I am also deeply familiar with modern AI
-            workflows, including agent skills, MCP servers, and tool-assisted
-            development loops that make engineering teams move faster.
+            I build and ship production mobile apps for teams that need reliable
+            delivery, clean architecture, and release ownership from first build
+            to the store. My strongest base is SwiftUI and UIKit, with practical
+            cross-platform delivery across React Native and Flutter.
           </p>
 
           <div className="enter flex flex-col gap-3 lg:pt-2" style={{ animationDelay: '0.72s' }}>
@@ -93,6 +102,27 @@ export default function Hero() {
                 Resume ↓
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Ownership proof */}
+        <div className="enter mt-12 lg:mt-14 pt-8 border-t border-edge" style={{ animationDelay: '0.8s' }}>
+          <p
+            className="font-mono text-xs font-black uppercase text-muted mb-5"
+            style={{ letterSpacing: '0.12em' }}
+          >
+            What I can own
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            {ownership.map(item => (
+              <span
+                key={item}
+                className="font-mono text-[11px] font-black uppercase px-3 py-1.5 border border-edge text-ink bg-surface"
+                style={{ letterSpacing: '0.08em' }}
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 

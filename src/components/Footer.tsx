@@ -14,7 +14,7 @@ export default function Footer() {
             className="text-xs font-black uppercase text-muted"
             style={{ letterSpacing: '0.1em' }}
           >
-            Senior iOS Engineer
+            Senior Mobile Developer
           </span>
         </div>
 
