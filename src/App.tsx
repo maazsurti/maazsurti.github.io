@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Loader from './components/Loader';
 import ScrollToTop from './components/ScrollToTop';
 import AppDetail from './pages/AppDetail';
 import Hero from './components/Hero';
@@ -24,6 +25,7 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
+      <Loader />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

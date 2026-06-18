@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom';
 import { apps, type App } from '../../Utilities/data/apps';
+import { useReveal } from '../hooks/useReveal';
 
 function AppCard({ app, index }: { app: App; index: number }) {
+  const [ref, revealed, revealStyle] = useReveal<HTMLAnchorElement>((index % 2) * 90);
   return (
     <Link
       to={`/apps/${app.id}`}
-      className="bg-surface group relative overflow-hidden block"
-      style={{ borderTop: '3px solid transparent' }}
+      id={`app-${app.id}`}
+      ref={ref}
+      onClick={() => sessionStorage.setItem('returnTo', app.id)}
+      className={`reveal ${revealed} bg-surface group relative overflow-hidden block`}
+      style={{ borderTop: '3px solid transparent', ...revealStyle }}
       onMouseEnter={e => (e.currentTarget.style.borderTopColor = app.color)}
       onMouseLeave={e => (e.currentTarget.style.borderTopColor = 'transparent')}
     >
@@ -82,7 +87,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
               </span>
             )}
             <span
-              className="font-mono text-xs font-black uppercase text-muted group-hover:text-ink transition-colors duration-150"
+              className="font-mono text-xs font-black uppercase text-muted group-hover:text-ink transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               style={{ letterSpacing: '0.1em' }}
             >
               ↗
@@ -95,10 +100,15 @@ function AppCard({ app, index }: { app: App; index: number }) {
 }
 
 export default function AppList() {
+  const [ref, revealed, revealStyle] = useReveal();
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4 mb-10">
+        <div
+          ref={ref}
+          style={revealStyle}
+          className={`reveal ${revealed} flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4 mb-10`}
+        >
           <div>
             <h2
               className="text-sm font-black uppercase tracking-widest text-ink"

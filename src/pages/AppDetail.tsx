@@ -53,7 +53,7 @@ export default function AppDetail() {
     <div className="min-h-screen bg-bg text-ink">
 
       {/* Nav */}
-      <div className="px-6 lg:px-16 py-6 border-b border-edge">
+      <div className="enter px-6 lg:px-16 py-6 border-b border-edge" style={{ animationDelay: '0s' }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
@@ -72,7 +72,7 @@ export default function AppDetail() {
       </div>
 
       {/* Header */}
-      <div className="px-6 lg:px-16 pt-12 pb-10 border-b border-edge">
+      <div className="enter px-6 lg:px-16 pt-12 pb-10 border-b border-edge" style={{ animationDelay: '0.06s' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end">
 
           {/* Left: meta + title + tagline + CTA */}
@@ -138,7 +138,7 @@ export default function AppDetail() {
       </div>
 
       {/* Screenshots strip */}
-      <div className="border-b border-edge py-10">
+      <div className="enter border-b border-edge py-10" style={{ animationDelay: '0.12s' }}>
         <div className="pl-6 lg:pl-16">
           <p
             className="font-mono text-xs font-black uppercase text-muted mb-6"
@@ -167,7 +167,7 @@ export default function AppDetail() {
       </div>
 
       {/* Description + Features */}
-      <div className="px-6 lg:px-16 py-14 border-b border-edge">
+      <div className="enter px-6 lg:px-16 py-14 border-b border-edge" style={{ animationDelay: '0.18s' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
             <p
@@ -207,7 +207,7 @@ export default function AppDetail() {
       </div>
 
       {/* Meta + CTA */}
-      <div className="px-6 lg:px-16 py-12">
+      <div className="enter px-6 lg:px-16 py-12" style={{ animationDelay: '0.24s' }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-8">
           <div className="flex gap-10">
             {[

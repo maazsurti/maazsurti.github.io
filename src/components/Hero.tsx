@@ -11,21 +11,27 @@ export default function Hero() {
         {/* First read: availability, name, and role */}
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_24rem] gap-12 lg:gap-20 items-end">
           <div>
-            <div className="flex items-center gap-2.5 mb-10">
-              <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            <div className="enter flex items-center gap-2.5 mb-10" style={{ animationDelay: '0.05s' }}>
+              <span className="relative flex w-2 h-2 shrink-0">
+                <span className="dot-ping absolute inset-0" />
+                <span className="relative inline-flex w-2 h-2 rounded-full bg-accent" />
+              </span>
               <span className="font-mono text-xs uppercase tracking-widest text-accent font-semibold">
                 Open to senior iOS roles
               </span>
             </div>
 
             <h1 className="font-display text-7xl sm:text-8xl lg:text-[8.5rem] font-black leading-[0.88] uppercase text-ink">
-              Maaz
-              <br />
-              Surti.
+              <span className="enter-clip block" style={{ animationDelay: '0.15s' }}>
+                Maaz
+              </span>
+              <span className="enter-clip block" style={{ animationDelay: '0.3s' }}>
+                Surti<span className="text-accent">.</span>
+              </span>
             </h1>
           </div>
 
-          <div className="lg:pb-4">
+          <div className="enter lg:pb-4" style={{ animationDelay: '0.45s' }}>
             <p
               className="font-mono text-xs font-black uppercase text-muted mb-4"
               style={{ letterSpacing: '0.12em' }}
@@ -43,7 +49,7 @@ export default function Hero() {
 
         {/* Second read: concise pitch and contact */}
         <div className="mt-12 lg:mt-14 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_24rem] gap-8 lg:gap-20 items-start">
-          <p className="font-serif text-xl sm:text-2xl text-ink leading-relaxed max-w-3xl">
+          <p className="enter font-serif text-xl sm:text-2xl text-ink leading-relaxed max-w-3xl" style={{ animationDelay: '0.6s' }}>
             I help teams turn mobile product ideas into polished iOS apps,
             owning the path from architecture and API integration through CI/CD
             and App Store release. I am also deeply familiar with modern AI
@@ -51,7 +57,7 @@ export default function Hero() {
             development loops that make engineering teams move faster.
           </p>
 
-          <div className="flex flex-col gap-3 lg:pt-2">
+          <div className="enter flex flex-col gap-3 lg:pt-2" style={{ animationDelay: '0.72s' }}>
             <a
               href="mailto:hello@maazsurti.com"
               className="font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
@@ -92,8 +98,8 @@ export default function Hero() {
 
         {/* Proof, kept quiet */}
         <div className="mt-16 lg:mt-20 pt-8 border-t border-edge grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
-          {stats.map(({ val, label }) => (
-            <div key={label}>
+          {stats.map(({ val, label }, i) => (
+            <div key={label} className="enter" style={{ animationDelay: `${0.85 + i * 0.1}s` }}>
               <p className="font-mono text-3xl sm:text-4xl font-black text-ink">
                 {val}
               </p>

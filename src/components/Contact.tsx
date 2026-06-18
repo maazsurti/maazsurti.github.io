@@ -1,3 +1,5 @@
+import { useReveal } from '../hooks/useReveal';
+
 const links = [
   { label: 'Email', href: 'mailto:hello@maazsurti.com', display: 'hello@maazsurti.com' },
   { label: 'GitHub', href: 'https://github.com/maazsurti', display: 'github.com/maazsurti' },
@@ -5,10 +7,15 @@ const links = [
 ];
 
 export default function Contact() {
+  const [ref, revealed, revealStyle] = useReveal();
   return (
     <section className="py-20 border-b border-edge">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+        <div
+          ref={ref}
+          style={revealStyle}
+          className={`reveal ${revealed} flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12`}
+        >
 
           {/* Heading */}
           <div className="lg:max-w-sm">
@@ -39,9 +46,12 @@ export default function Contact() {
                   href={href}
                   target={href.startsWith('mailto') ? undefined : '_blank'}
                   rel="noopener noreferrer"
-                  className="font-mono text-sm font-bold text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
+                  className="group font-mono text-sm font-bold text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
                 >
-                  {display} ↗
+                  {display}{' '}
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    ↗
+                  </span>
                 </a>
               </div>
             ))}
