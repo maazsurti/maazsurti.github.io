@@ -3,22 +3,20 @@ import { apps, type App } from '../../Utilities/data/apps';
 import { useReveal } from '../hooks/useReveal';
 
 function AppCard({ app, index }: { app: App; index: number }) {
-  const [ref, revealed, revealStyle] = useReveal<HTMLAnchorElement>((index % 2) * 90);
+  const [ref, revealed, revealStyle] = useReveal((index % 2) * 90);
   return (
+    <div ref={ref} style={revealStyle} className={`reveal ${revealed}`}>
     <Link
       to={`/apps/${app.id}`}
       id={`app-${app.id}`}
-      ref={ref}
       onClick={() => sessionStorage.setItem('returnTo', app.id)}
-      className={`reveal ${revealed} bg-surface group relative overflow-hidden block`}
-      style={{ borderTop: '3px solid transparent', ...revealStyle }}
-      onMouseEnter={e => (e.currentTarget.style.borderTopColor = app.color)}
-      onMouseLeave={e => (e.currentTarget.style.borderTopColor = 'transparent')}
+      className="card-link bg-surface group relative overflow-hidden block h-full"
+      style={{ '--app-color': app.color } as React.CSSProperties}
     >
       {/* Decorative large index */}
       <span
-        className="font-display absolute top-0 right-4 text-[8rem] font-black leading-none select-none pointer-events-none"
-        style={{ color: app.color, opacity: 0.07, letterSpacing: '-0.04em' }}
+        className="card-numeral font-display absolute top-0 right-4 text-[8rem] font-black leading-none select-none pointer-events-none"
+        style={{ color: app.color, letterSpacing: '-0.04em' }}
       >
         {String(index + 1).padStart(2, '0')}
       </span>
@@ -44,10 +42,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
         </div>
 
         {/* Name */}
-        <h3
-          className="font-display text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-150 group-hover:text-(--app-color)"
-          style={{ '--app-color': app.color } as React.CSSProperties}
-        >
+        <h3 className="font-display text-4xl lg:text-5xl font-black leading-none mb-4 transition-colors duration-200 group-hover:text-(--app-color)">
           {app.name}
         </h3>
 
@@ -87,7 +82,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
               </span>
             )}
             <span
-              className="font-mono text-xs font-black uppercase text-muted group-hover:text-ink transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="arrow-out font-mono text-xs font-black uppercase text-muted group-hover:text-ink transition-colors duration-200"
               style={{ letterSpacing: '0.1em' }}
             >
               ↗
@@ -96,6 +91,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
         </div>
       </div>
     </Link>
+    </div>
   );
 }
 

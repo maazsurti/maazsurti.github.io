@@ -16,7 +16,7 @@ function TimelineRow({ item, index }: { item: Entry; index: number }) {
         {item.year}
       </div>
 
-      <div className="flex-1">
+      <div className="row-drift flex-1">
         {/* Role — headline scale */}
         <p className="font-display font-black text-3xl lg:text-4xl text-ink group-hover:text-accent transition-colors duration-150 leading-none mb-3">
           {item.role}

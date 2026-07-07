@@ -72,37 +72,37 @@ export default function Hero() {
           <div className="enter flex flex-col gap-3 lg:pt-2" style={{ animationDelay: '0.72s' }}>
             <a
               href="mailto:hello@maazsurti.com"
-              className="font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
+              className="group font-mono text-sm font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150 self-start"
               style={{ letterSpacing: '0.08em' }}
             >
-              hello@maazsurti.com ↗
+              hello@maazsurti.com <span className="arrow-out">↗</span>
             </a>
             <div className="flex gap-5">
               <a
                 href="https://linkedin.com/in/maazsurti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                className="group font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.08em' }}
               >
-                LinkedIn ↗
+                LinkedIn <span className="arrow-out">↗</span>
               </a>
               <a
                 href="https://github.com/maazsurti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                className="group font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.08em' }}
               >
-                GitHub ↗
+                GitHub <span className="arrow-out">↗</span>
               </a>
               <a
                 href="/resume.pdf"
                 download
-                className="font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                className="group font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.08em' }}
               >
-                Resume ↓
+                Resume <span className="arrow-down">↓</span>
               </a>
             </div>
           </div>

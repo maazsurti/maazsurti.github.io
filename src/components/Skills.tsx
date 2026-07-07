@@ -49,18 +49,20 @@ function SkillRow({
       className={`reveal ${revealed} flex flex-col sm:flex-row gap-4 sm:gap-16 py-7`}
     >
       <p
-        className="text-xs font-black uppercase tracking-widest text-muted shrink-0 w-32 pt-1"
+        className="text-xs font-black uppercase tracking-widest text-muted shrink-0 sm:w-32 pt-1"
         style={{ letterSpacing: '0.12em' }}
       >
         {label}
       </p>
 
       <p className="font-serif text-lg font-semibold text-ink leading-relaxed">
+        {/* Real spaces around the dot give the browser break opportunities
+            between items — margin-only gaps render as one unbreakable run. */}
         {items.map((item, i) => (
           <span key={item}>
             {item}
             {i < items.length - 1 && (
-              <span className="text-muted mx-2 font-normal">·</span>
+              <> <span className="text-muted mx-1 font-normal">·</span> </>
             )}
           </span>
         ))}

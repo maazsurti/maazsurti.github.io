@@ -49,10 +49,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="group font-mono text-sm font-bold text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
                 >
-                  {display}{' '}
-                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    ↗
-                  </span>
+                  {display} <span className="arrow-out">↗</span>
                 </a>
               </div>
             ))}

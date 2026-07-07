@@ -29,6 +29,19 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 - Detail-page navigation snaps to top via `scrollTo({ behavior: 'instant' })` — the `html { scroll-behavior: smooth }` rule was animating the reset, which read as an unwanted scroll-up.
 - Verified: lint clean, build green.
 
+## Micro-interaction refinement pass — 2026-07-07
+
+- App card: JS border-color mutation replaced with a CSS accent line that draws in from the left and exits through the right (`.card-link::after`, colour from `--app-color`); decorative index numeral rises and darkens on hover (`.card-numeral`). Reveal moved to a wrapper div so card interactions aren't polluted by the reveal's slow transform transition.
+- Timeline: row content drifts 4px right on hover while the year stays anchored (`.row-drift`).
+- Arrows unified under `.arrow-out` / `.arrow-back` / `.arrow-down` CSS classes (hover nudge along pointing direction) — replaces per-element Tailwind utilities; now covered by the reduce-motion guard.
+- Press feedback: `.pressable` (`scale(0.97)` on `:active`) on the App Store CTA.
+- Underlined links: `text-underline-offset` eases 4px→6px on hover, one global rule.
+- Scroll reveal: opacity resolves at 0.5s ahead of the 0.7s transform settle.
+- Non-motion polish: global `:focus-visible` accent outline, `-webkit-tap-highlight-color: transparent`, `tabular-nums` on mono, `text-wrap: pretty` on paragraphs.
+- All new hover motion gated behind `(hover: hover) and (pointer: fine)` and degraded under reduce-motion.
+- Responsive fix (Skills): real spaces around the `·` separator restore line-break opportunities between items (margin-only gaps rendered one unbreakable run that overflowed on mobile); group label width now `sm:w-32` so labels don't wrap on mobile.
+- Verified: lint clean, build green.
+
 ## Reduce-motion control & image shimmer — 2026-06-18
 
 - Reduced motion now driven by a `reduce-motion` class on `<html>` (set in `main.tsx`), seeded from the OS preference but overridable via localStorage — `prefers-reduced-motion` itself is OS-level and not settable from JS.

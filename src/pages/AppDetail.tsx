@@ -102,10 +102,10 @@ export default function AppDetail() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             to="/"
-            className="font-mono text-xs font-black uppercase text-muted hover:text-ink transition-colors duration-150"
+            className="group font-mono text-xs font-black uppercase text-muted hover:text-ink transition-colors duration-150"
             style={{ letterSpacing: '0.12em' }}
           >
-            ← All Work
+            <span className="arrow-back">←</span> All Work
           </Link>
           <span
             className="font-mono text-xs font-black uppercase text-muted"
@@ -163,11 +163,11 @@ export default function AppDetail() {
                 href={app.stores.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:border-accent hover:text-accent transition-colors duration-150"
+                className="group pressable inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:border-accent hover:text-accent"
                 style={{ letterSpacing: '0.12em' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
-                Live on App Store ↗
+                Live on App Store <span className="arrow-out">↗</span>
               </a>
             )}
           </div>
@@ -283,20 +283,20 @@ export default function AppDetail() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <a
               href="mailto:hello@maazsurti.com?subject=Senior%20mobile%20developer%20role"
-              className="inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
+              className="group inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-ink underline underline-offset-4 decoration-edge hover:text-accent hover:decoration-accent transition-colors duration-150"
               style={{ letterSpacing: '0.12em' }}
             >
-              Hiring for mobile delivery? ↗
+              Hiring for mobile delivery? <span className="arrow-out">↗</span>
             </a>
             {app.stores.appStore && (
               <a
                 href={app.stores.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
+                className="group inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.12em' }}
               >
-                View on App Store ↗
+                View on App Store <span className="arrow-out">↗</span>
               </a>
             )}
           </div>

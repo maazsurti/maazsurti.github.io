@@ -35,6 +35,17 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Editorial typography: stats and years line up like a ledger; paragraphs
+   avoid awkward last lines where the engine supports it. */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 ::selection {
@@ -45,6 +56,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 /* ---- Motion ---- */
@@ -166,17 +182,105 @@ a {
   animation: shimmer-sweep 1.5s ease-in-out infinite;
 }
 
-/* Scroll-reveal: hidden until observed, then transitions in. */
+/* Scroll-reveal: hidden until observed, then transitions in. Opacity resolves
+   ahead of the settle so content reads sooner. */
 .reveal {
   opacity: 0;
   transform: translateY(1.5rem);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* ---- Interactive details ---- */
+
+/* Underlined links: the underline settles away slightly on hover.
+   Where text-underline-offset isn't animatable it degrades to a snap. */
+a.underline {
+  transition: color 150ms ease, text-decoration-color 150ms ease,
+              text-underline-offset 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.underline:hover {
+    text-underline-offset: 6px;
+  }
+}
+
+/* App card: per-app line draws in from the left and exits through the right,
+   colour from --app-color set inline on the card. */
+.card-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--app-color);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 0.35s;
+  }
+}
+
+/* App card: the decorative index numeral rises and darkens with the line. */
+.card-numeral {
+  opacity: 0.07;
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-link:hover .card-numeral {
+    opacity: 0.13;
+    transform: translateY(-0.25rem);
+  }
+}
+
+/* Timeline: row content drifts right while the year stays anchored. */
+.row-drift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover > .row-drift {
+    transform: translateX(0.25rem);
+  }
+}
+
+/* Trailing arrow glyphs nudge along their pointing direction on hover. */
+.arrow-out,
+.arrow-back,
+.arrow-down {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .arrow-out { transform: translate(0.125rem, -0.125rem); }
+  .group:hover .arrow-back { transform: translateX(-0.1875rem); }
+  .group:hover .arrow-down { transform: translateY(0.125rem); }
+}
+
+/* Press feedback for solid, button-like targets. */
+.pressable {
+  transition-property: transform, color, border-color;
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pressable:active {
+  transform: scale(0.97);
 }
 
 /* Reduced motion. Driven by a `reduce-motion` class on <html> (set in
@@ -205,3 +309,22 @@ html.reduce-motion { scroll-behavior: auto; }
 }
 .reduce-motion .loader-name { opacity: 1; }
 .reduce-motion .loader-bar { transform: scaleX(1); }
+/* Interactive details degrade to instant state changes; colour fades stay. */
+.reduce-motion a.underline { transition: color 150ms ease, text-decoration-color 150ms ease; }
+.reduce-motion a.underline:hover { text-underline-offset: 4px; }
+.reduce-motion .card-link::after { transition: none; }
+.reduce-motion .card-numeral { transition: opacity 0.4s ease; }
+.reduce-motion .card-link:hover .card-numeral { transform: none; }
+.reduce-motion .row-drift,
+.reduce-motion .group:hover > .row-drift {
+  transition: none;
+  transform: none;
+}
+.reduce-motion .pressable { transition-property: color, border-color; }
+.reduce-motion .pressable:active { transform: none; }
+.reduce-motion .arrow-out,
+.reduce-motion .arrow-back,
+.reduce-motion .arrow-down {
+  transition: none;
+  transform: none !important;
+}
