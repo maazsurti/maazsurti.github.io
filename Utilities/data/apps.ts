@@ -54,7 +54,7 @@ const makeApp = (base: AppInput): App => ({
 
 export const apps: App[] = [
   makeApp({
-    id: 'lorrynow', name: 'LorryNow', category: 'Logistics', tech: 'SwiftUI',
+    id: 'lorrynow', name: 'SwiftHaul', category: 'Logistics', tech: 'SwiftUI',
     color: '#F97316', accent: '#EA580C', icon: 'LN',
     tagline: 'On-demand logistics booking for time-sensitive moves.',
     impact: 'Built the customer-facing booking, tracking, wallet, and bilingual service flows for a live logistics marketplace.',
@@ -79,7 +79,7 @@ export const apps: App[] = [
     screenshots: makeScreenshots('lorrynow', ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
   }),
   makeApp({
-    id: 'secondhand-souq', name: 'SecondHand Souq', category: 'Marketplace', tech: 'SwiftUI',
+    id: 'secondhand-souq', name: 'LoopMarket', category: 'Marketplace', tech: 'SwiftUI',
     color: '#10B981', accent: '#059669', icon: 'SS',
     tagline: 'A bilingual marketplace for pre-owned goods in Kuwait.',
     impact: 'Owned a multi-platform SwiftUI marketplace release across iPhone, macOS, and visionOS with localized buyer and seller flows.',
@@ -104,7 +104,7 @@ export const apps: App[] = [
     screenshots: makeScreenshots('secondhand-souq', ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
   }),
   makeApp({
-    id: 'vite-kuwait', name: 'Vite Kuwait', category: 'Events', tech: 'SwiftUI',
+    id: 'vite-kuwait', name: 'Gatherly', category: 'Events', tech: 'SwiftUI',
     color: '#8B5CF6', accent: '#7C3AED', icon: 'VK',
     tagline: 'Digital invitation and RSVP management for events.',
     impact: 'Delivered guest, RSVP, and attendance workflows that help event teams coordinate invites without spreadsheet-heavy operations.',
@@ -129,7 +129,7 @@ export const apps: App[] = [
     screenshots: makeScreenshots('vite-kuwait', ['Events', 'Guests', 'RSVPs', 'Tracking', 'Invites']),
   }),
   makeApp({
-    id: 'fit-habibi', name: 'Fit Habibi', category: 'Health & Fitness', tech: 'SwiftUI',
+    id: 'fit-habibi', name: 'MotionFit', category: 'Health & Fitness', tech: 'SwiftUI',
     color: '#EC4899', accent: '#DB2777', icon: 'FH',
     tagline: 'Coach and trainee workflows for modern fitness teams.',
     impact: 'Built mobile workflows for coaches, trainees, programs, schedules, and progress tracking in a bilingual fitness product.',
@@ -155,7 +155,7 @@ export const apps: App[] = [
     screenshots: makeScreenshots('fit-habibi', ['Dashboard', 'Programs', 'Progress', 'Schedule', 'Analytics']),
   }),
   makeApp({
-    id: 'petbook-kuwait', name: 'Petbook Kuwait', category: 'Pet Services', tech: 'SwiftUI',
+    id: 'petbook-kuwait', name: 'Pawline', category: 'Pet Services', tech: 'SwiftUI',
     color: '#F59E0B', accent: '#D97706', icon: 'PK',
     tagline: 'Pet services, booking, and supplies in one mobile app.',
     impact: 'Shipped marketplace-style booking flows for grooming, veterinary care, walking, sitting, training, and pet supplies.',
@@ -180,7 +180,7 @@ export const apps: App[] = [
     screenshots: makeScreenshots('petbook-kuwait', ['Services', 'Book', 'Vets', 'Profile', 'Supplies']),
   }),
   makeApp({
-    id: 'reflex-kuwait', name: 'Reflex Kuwait', category: 'Health & Fitness', tech: 'Swift · UIKit',
+    id: 'reflex-kuwait', name: 'Wellnest', category: 'Health & Fitness', tech: 'Swift · UIKit',
     color: '#EF4444', accent: '#DC2626', icon: 'RK',
     tagline: 'A mobile companion for Kuwait health club members.',
     impact: 'Delivered a UIKit-based member app that makes club services easier to discover, navigate, and access on mobile.',
