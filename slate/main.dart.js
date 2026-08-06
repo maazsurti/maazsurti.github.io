@@ -57057,7 +57057,7 @@ $S:0}
 A.ap6.prototype={}
 A.Dr.prototype={
 D(a){var s=this
-return new A.PV("Digital Chopda",s.c,A.b([new A.Of("iPhone",$.bxh()),new A.Of("Android",$.bxi())],t.tX),A.b([new A.rz("Appearance",s.d,B.ab8,s.f,null,t.oF),new A.rz("Language",s.e,B.a9Q,s.r,null,t.l8)],t.p),null)}}
+return new A.PV("Slate",s.c,A.b([new A.Of("iPhone",$.bxh()),new A.Of("Android",$.bxi())],t.tX),A.b([new A.rz("Appearance",s.d,B.ab8,s.f,null,t.oF),new A.rz("Language",s.e,B.a9Q,s.r,null,t.l8)],t.p),null)}}
 A.MD.prototype={
 ac(){return new A.ajG()}}
 A.ajG.prototype={
