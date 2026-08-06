@@ -48,3 +48,11 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 - Dev-only `MotionToggle` (rendered only under `import.meta.env.DEV`) forces reduced motion on/off to preview the reduced experience on a device where the OS preference is off.
 - Screenshots on the detail page load through `ShotImage`: a tinted placeholder with a soft sheen sweep (`shimmer`) that crossfades to the image on load, falling back to a colour block on error. Replaced the old `failedScreenshots` state machinery.
 - Verified: lint clean, build green.
+
+## Slate portfolio entry — 2026-08-06
+
+- Slate added as the second featured app with product details grounded in its Flutter project documentation.
+- App links now support interactive demos; Slate links to `maazsurti.com/slate` from its detail page.
+- Five screenshot slots use existing image fallbacks until final screenshots are supplied.
+- Selected Work copy now covers both client work and independently built products.
+- Verified: lint clean, build green.

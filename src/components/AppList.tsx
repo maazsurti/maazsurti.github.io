@@ -113,8 +113,8 @@ export default function AppList() {
               Selected Work
             </h2>
             <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
-              Production apps shipped for real clients across logistics, marketplaces,
-              events, fitness, and service businesses.
+              Production apps and independently built products across accounting,
+              logistics, marketplaces, events, fitness, and services.
             </p>
           </div>
           <span className="font-mono text-sm text-muted">

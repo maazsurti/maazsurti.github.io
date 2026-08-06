@@ -94,6 +94,11 @@ export default function AppDetail() {
     );
   }
 
+  const primaryLink = app.stores.demo ?? app.stores.appStore;
+  const primaryLinkLabel = app.stores.demo ? 'Try live demo' : 'Live on App Store';
+  const primaryFooterLabel = app.stores.demo ? 'Try live demo' : 'View on App Store';
+  const productStatus = app.stores.demo ? 'Interactive Web Demo' : 'Live App Store product';
+
   return (
     <div className="min-h-screen bg-bg text-ink">
 
@@ -148,7 +153,7 @@ export default function AppDetail() {
               {app.impact}
             </p>
             <div className="flex flex-wrap gap-2.5 mb-6">
-              {[app.tech, app.meta.platform, app.meta.languages, 'Live App Store product'].map(item => (
+              {[app.tech, app.meta.platform, app.meta.languages, productStatus].map(item => (
                 <span
                   key={item}
                   className="font-mono text-[11px] font-black uppercase px-3 py-1.5 border border-edge text-ink bg-surface"
@@ -158,16 +163,16 @@ export default function AppDetail() {
                 </span>
               ))}
             </div>
-            {app.stores.appStore && (
+            {primaryLink && (
               <a
-                href={app.stores.appStore}
+                href={primaryLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group pressable inline-flex items-center gap-2.5 font-mono text-xs font-black uppercase px-4 py-2.5 border-2 border-ink text-ink hover:border-accent hover:text-accent"
                 style={{ letterSpacing: '0.12em' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: app.color }} />
-                Live on App Store <span className="arrow-out">↗</span>
+                {primaryLinkLabel} <span className="arrow-out">↗</span>
               </a>
             )}
           </div>
@@ -288,15 +293,15 @@ export default function AppDetail() {
             >
               Hiring for mobile delivery? <span className="arrow-out">↗</span>
             </a>
-            {app.stores.appStore && (
+            {primaryLink && (
               <a
-                href={app.stores.appStore}
+                href={primaryLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 font-mono text-xs font-black uppercase text-muted underline underline-offset-4 decoration-edge hover:text-ink hover:decoration-ink transition-colors duration-150"
                 style={{ letterSpacing: '0.12em' }}
               >
-                View on App Store <span className="arrow-out">↗</span>
+                {primaryFooterLabel} <span className="arrow-out">↗</span>
               </a>
             )}
           </div>

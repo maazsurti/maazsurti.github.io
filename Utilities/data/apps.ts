@@ -3,6 +3,7 @@ import { svgIcon } from '../utils/svg'
 export interface AppStoreLinks {
   appStore: string | null;
   playStore: string | null;
+  demo?: string | null;
 }
 
 export interface AppMeta {
@@ -77,6 +78,32 @@ export const apps: App[] = [
     year: '2024',
     stores: { appStore: 'https://apps.apple.com/in/app/lorrynow/id6746252731', playStore: null },
     screenshots: makeScreenshots('swifthaul', ['Book', 'Track', 'Pricing', 'History', 'Wallet']),
+  }),
+  makeApp({
+    id: 'slate', name: 'Slate', category: 'Accounting', tech: 'Flutter',
+    color: '#16A34A', accent: '#15803D', icon: 'SL',
+    tagline: 'Offline-first bookkeeping built for busy shop counters.',
+    impact: 'Designed and built a fast, local-first workflow for recording sales, managing stock, reviewing performance, and tracking customer credit.',
+    description: 'Slate is a bookkeeping and inventory app for small merchants who need speed and clarity without the complexity of traditional accounting software. It keeps daily shop work available offline and makes frequent tasks easy to complete in a few taps.',
+    caseStudy: {
+      problem: 'Small merchants needed a quicker alternative to paper ledgers and complex GST-focused software for recording daily sales, checking stock, and understanding business performance.',
+      ownership: 'Designed and built the Flutter product end to end, including its domain model, offline database, quick-sale flows, inventory, reporting, customer credit, localization, and interactive web showcase.',
+      technical: 'Used Flutter with a local drift/SQLite database, transaction and batch-sale records, reactive Signals controllers, English and Gujarati localization, and a responsive framed web demo deployed through GitHub Pages.',
+      outcome: 'A working offline-first product and public interactive demo that turns core shopkeeping tasks into focused mobile workflows.',
+    },
+    features: [
+      'Quick single-item and multi-item sale recording',
+      'Inventory management with stock visibility',
+      'Sales, profit, and transaction history',
+      'Customer credit ledgers',
+      'Offline-first local data storage',
+      'English and Gujarati localization',
+      'Interactive light, dark, device, and language web showcase',
+    ],
+    meta: { platform: 'Android · iOS · Web', languages: 'EN + GU' },
+    year: '2026',
+    stores: { appStore: null, playStore: null, demo: 'https://maazsurti.com/slate/' },
+    screenshots: makeScreenshots('slate', ['Quick Sale', 'Batch Sale', 'Inventory', 'Transactions', 'Credit']),
   }),
   makeApp({
     id: 'loopmarket', name: 'LoopMarket', category: 'Marketplace', tech: 'SwiftUI',
