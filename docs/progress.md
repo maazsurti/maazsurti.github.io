@@ -53,6 +53,6 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 
 - Slate added as the second featured app with product details grounded in its Flutter project documentation.
 - App links now support interactive demos; Slate links to `maazsurti.com/slate` from its detail page.
-- Five screenshot slots use existing image fallbacks until final screenshots are supplied.
+- Five supplied Slate screenshots cover Quick Record, Transactions, Credit Ledger, Analytics, and Settings.
 - Selected Work copy now covers both client work and independently built products.
 - Verified: lint clean, build green.

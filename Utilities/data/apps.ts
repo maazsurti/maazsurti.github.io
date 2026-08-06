@@ -103,7 +103,7 @@ export const apps: App[] = [
     meta: { platform: 'Android · iOS · Web', languages: 'EN + GU' },
     year: '2026',
     stores: { appStore: null, playStore: null, demo: 'https://maazsurti.com/slate/' },
-    screenshots: makeScreenshots('slate', ['Quick Sale', 'Batch Sale', 'Inventory', 'Transactions', 'Credit']),
+    screenshots: makeScreenshots('slate', ['Quick Record', 'Transactions', 'Credit Ledger', 'Analytics', 'Settings']),
   }),
   makeApp({
     id: 'loopmarket', name: 'LoopMarket', category: 'Marketplace', tech: 'SwiftUI',
