@@ -55,8 +55,8 @@ const makeApp = (base: AppInput): App => ({
 
 export const apps: App[] = [
   makeApp({
-    id: 'swifthaul', name: 'SwiftHaul', category: 'Logistics', tech: 'SwiftUI',
-    color: '#F97316', accent: '#EA580C', icon: 'LN',
+    id: 'swifthaul', name: 'Onward', category: 'Logistics', tech: 'SwiftUI',
+    color: '#F97316', accent: '#EA580C', icon: 'ON',
     tagline: 'On-demand logistics booking for time-sensitive moves.',
     impact: 'Built the customer-facing booking, tracking, wallet, and bilingual service flows for a live logistics marketplace.',
     description: 'A production logistics app for Kuwait customers booking transport across multiple lorry types. The experience needed to feel fast, predictable, and trustworthy from quote selection through driver tracking and payment.',
@@ -106,8 +106,8 @@ export const apps: App[] = [
     screenshots: makeScreenshots('slate', ['Quick Record', 'Transactions', 'Credit Ledger', 'Analytics', 'Settings']),
   }),
   makeApp({
-    id: 'loopmarket', name: 'LoopMarket', category: 'Marketplace', tech: 'SwiftUI',
-    color: '#10B981', accent: '#059669', icon: 'SS',
+    id: 'loopmarket', name: 'Second Bloom', category: 'Marketplace', tech: 'SwiftUI',
+    color: '#10B981', accent: '#059669', icon: 'SB',
     tagline: 'A bilingual marketplace for pre-owned goods in Kuwait.',
     impact: 'Owned a multi-platform SwiftUI marketplace release across iPhone, macOS, and visionOS with localized buyer and seller flows.',
     description: 'A secondhand marketplace designed for browsing, listing, and discovering pre-owned goods. The product required clear trust cues, low-friction listing creation, and a codebase that could scale across Apple platforms.',
@@ -131,8 +131,8 @@ export const apps: App[] = [
     screenshots: makeScreenshots('loopmarket', ['Browse', 'Listing', 'Sell', 'Profile', 'Search']),
   }),
   makeApp({
-    id: 'gatherly', name: 'Gatherly', category: 'Events', tech: 'SwiftUI',
-    color: '#8B5CF6', accent: '#7C3AED', icon: 'VK',
+    id: 'gatherly', name: 'Plus One', category: 'Events', tech: 'SwiftUI',
+    color: '#8B5CF6', accent: '#7C3AED', icon: 'PO',
     tagline: 'Digital invitation and RSVP management for events.',
     impact: 'Delivered guest, RSVP, and attendance workflows that help event teams coordinate invites without spreadsheet-heavy operations.',
     description: 'An event invitation platform for Kuwait, built around guest lists, digital invites, RSVPs, and attendance coordination. The app turns a high-touch service process into a clean mobile workflow for clients and organizers.',
@@ -156,8 +156,8 @@ export const apps: App[] = [
     screenshots: makeScreenshots('gatherly', ['Events', 'Guests', 'RSVPs', 'Tracking', 'Invites']),
   }),
   makeApp({
-    id: 'motionfit', name: 'MotionFit', category: 'Health & Fitness', tech: 'SwiftUI',
-    color: '#EC4899', accent: '#DB2777', icon: 'FH',
+    id: 'motionfit', name: 'Form', category: 'Health & Fitness', tech: 'SwiftUI',
+    color: '#EC4899', accent: '#DB2777', icon: 'FO',
     tagline: 'Coach and trainee workflows for modern fitness teams.',
     impact: 'Built mobile workflows for coaches, trainees, programs, schedules, and progress tracking in a bilingual fitness product.',
     description: 'A fitness platform for coaches and trainees in the Middle East. The product supports client management, workout planning, appointment scheduling, and progress visibility across both coach-facing and trainee-facing journeys.',
@@ -182,8 +182,8 @@ export const apps: App[] = [
     screenshots: makeScreenshots('motionfit', ['Dashboard', 'Programs', 'Progress', 'Schedule', 'Analytics']),
   }),
   makeApp({
-    id: 'pawline', name: 'Pawline', category: 'Pet Services', tech: 'SwiftUI',
-    color: '#F59E0B', accent: '#D97706', icon: 'PK',
+    id: 'pawline', name: 'Milo & Co.', category: 'Pet Services', tech: 'SwiftUI',
+    color: '#F59E0B', accent: '#D97706', icon: 'MC',
     tagline: 'Pet services, booking, and supplies in one mobile app.',
     impact: 'Shipped marketplace-style booking flows for grooming, veterinary care, walking, sitting, training, and pet supplies.',
     description: 'A pet services marketplace for Kuwait customers who need booking, service discovery, and supplies in one place. The app brings multiple appointment-heavy categories into a single mobile experience.',
@@ -207,8 +207,8 @@ export const apps: App[] = [
     screenshots: makeScreenshots('pawline', ['Services', 'Book', 'Vets', 'Profile', 'Supplies']),
   }),
   makeApp({
-    id: 'wellnest', name: 'Wellnest', category: 'Health & Fitness', tech: 'Swift · UIKit',
-    color: '#EF4444', accent: '#DC2626', icon: 'RK',
+    id: 'wellnest', name: 'The Oasis', category: 'Health & Fitness', tech: 'Swift · UIKit',
+    color: '#EF4444', accent: '#DC2626', icon: 'TO',
     tagline: 'A mobile companion for Kuwait health club members.',
     impact: 'Delivered a UIKit-based member app that makes club services easier to discover, navigate, and access on mobile.',
     description: 'A mobile companion for Reflex Health Club, designed to help members explore services and activities across wellness, fitness, and family entertainment. The app focuses on clear navigation and approachable service discovery.',
