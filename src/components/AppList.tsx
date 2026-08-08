@@ -122,7 +122,7 @@ export default function AppList() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-edge">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px">
           {apps.map((app, i) => (
             <AppCard key={app.id} app={app} index={i} />
           ))}
