@@ -12,7 +12,7 @@ export const timeline: TimelineItemData[] = [
     year: '2020–Now',
     role: 'Lead Mobile Developer',
     company: 'Raw Code Developers',
-    location: 'Kuwait City, Kuwait · Remote',
+    location: 'Dubai, UAE, Kuwait and other GCC countries · Remote',
     desc: 'Senior mobile ownership across production client products, from architecture and implementation through release systems, QA coordination, and App Store delivery.',
     highlights: [
       'Shipped 8+ App Store apps across logistics, marketplaces, fitness, events, and service businesses.',
