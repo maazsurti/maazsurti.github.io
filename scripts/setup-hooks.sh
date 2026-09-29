@@ -1,7 +1,7 @@
 #!/bin/sh
 cat > .git/hooks/pre-commit << 'EOF'
 #!/bin/sh
-RESUME_SRC="/Users/maaz/Documents/Work related personal files/Resume/Resume/PDFs And Word/maaz-surti-resume.pdf"
+RESUME_SRC="/Users/maaz/MEGA/Work related personal files/Resume/maaz-surti-resume.pdf"
 RESUME_DEST="public/resume.pdf"
 
 if [ -f "$RESUME_SRC" ]; then

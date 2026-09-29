@@ -65,7 +65,7 @@ export default function Timeline() {
             Experience
           </h2>
           <p className="font-serif text-base text-muted leading-relaxed mt-3 max-w-xl">
-            Five years building client-facing mobile products, with recent focus
+            6+ years building client-facing mobile products, with recent focus
             on senior ownership, release systems, cross-platform delivery, and
             App Store launches.
           </p>
