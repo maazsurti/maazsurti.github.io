@@ -1,17 +1,15 @@
-const MIN_HOLD_MS = 800
 const FADE_MS = 600
 const CAP_MS = 2000
 
 /**
- * One-time intro overlay. Holds until fonts are ready (min 800ms, capped at 2s),
- * then wipes up and adds `loaded` to <html> — the gate that starts the Hero
- * entrance. Near-instant and motion-free under reduced motion.
+ * One-time intro overlay. Wipes up as soon as fonts are ready (capped at 2s) and
+ * adds `loaded` to <html> — the gate that starts the Hero entrance. There is no
+ * minimum hold, so a warm cache hands off immediately. Motion-free under
+ * reduced motion.
  */
 export function mountLoader(): void {
   const reduce = document.documentElement.classList.contains('reduce-motion')
-  const minHold = reduce ? 0 : MIN_HOLD_MS
   const fadeMs = reduce ? 0 : FADE_MS
-  const start = performance.now()
   let done = false
 
   const loader = document.createElement('div')
@@ -28,12 +26,9 @@ export function mountLoader(): void {
     if (done) return
     done = true
 
-    const wait = Math.max(0, minHold - (performance.now() - start))
-    window.setTimeout(() => {
-      document.documentElement.classList.add('loaded')
-      loader.classList.add('loader--leaving')
-      window.setTimeout(() => loader.remove(), fadeMs)
-    }, wait)
+    document.documentElement.classList.add('loaded')
+    loader.classList.add('loader--leaving')
+    window.setTimeout(() => loader.remove(), fadeMs)
   }
 
   const fonts = document.fonts?.ready ?? Promise.resolve()

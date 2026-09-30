@@ -23,7 +23,7 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 
 ## Intro loader & return-scroll — 2026-06-18
 
-- One-time intro overlay (`Loader`, mounted once at App level): name rises + accent line draws, holds for `document.fonts.ready` (min 800ms, capped 2s), then wipes up. On dismiss it adds `.loaded` to `<html>`, which is the gate that starts the Hero entrance — intro flows straight into the cascade. Near-instant + motion-free under reduced-motion.
+- One-time intro overlay (`Loader`, mounted once at App level): name rises + accent line draws, holds for `document.fonts.ready` (capped at 2s), then wipes up. On dismiss it adds `.loaded` to `<html>`, which is the gate that starts the Hero entrance — intro flows straight into the cascade. Near-instant + motion-free under reduced-motion.
 - Returning to `/` from an app detail page re-centers the originating card instantly (no scroll-to-top): card stores its id in `sessionStorage` on click; `ScrollToTop` reads it in a layout effect and `scrollIntoView({ block: 'center', behavior: 'instant' })`.
 - Detail-page entrance: main blocks (nav → header → screenshots → about → meta) rise in with a tight 0.06s stagger, reusing the `.enter` mechanism.
 - Detail-page navigation snaps to top via `scrollTo({ behavior: 'instant' })` — the `html { scroll-behavior: smooth }` rule was animating the reset, which read as an unwanted scroll-up.

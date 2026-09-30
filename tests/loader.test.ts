@@ -39,6 +39,18 @@ describe('mountLoader', () => {
     expect(overlay()).toBeNull()
   })
 
+  it('releases as soon as fonts are ready, with no minimum hold', async () => {
+    mountLoader()
+
+    await vi.advanceTimersByTimeAsync(0)
+
+    expect(isLoaded()).toBe(true)
+    expect(overlay()).not.toBeNull()
+
+    await vi.advanceTimersByTimeAsync(600)
+    expect(overlay()).toBeNull()
+  })
+
   it('is near-instant under reduced motion', async () => {
     document.documentElement.classList.add('reduce-motion')
     mountLoader()
