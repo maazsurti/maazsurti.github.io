@@ -17,3 +17,9 @@ Exit criteria: all sections render from data; lint + build pass.
 Tasteful, reduced-motion-safe motion that makes the site memorable without breaking the editorial restraint — Hero first-impression entrance + scroll reveals + hover affordances.
 
 Exit criteria: Hero animates on load; sections reveal on scroll; all motion disabled under `prefers-reduced-motion`; lint + build pass.
+
+## M2 — Framework-free port ✅
+
+Same site, rendered by vanilla TypeScript + jQuery instead of React, with an automated test suite.
+
+Exit criteria: no React/JSX in the dependency tree or source; all sections, routing, loader, and motion behave identically; `npm run lint`, `npm run test`, and `npm run build` pass.

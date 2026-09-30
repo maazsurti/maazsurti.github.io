@@ -35,3 +35,23 @@ Read this before changing anything structural. No implementation detail or code 
 **Consequences / constraints:** Any new motion must degrade to a static state under the reduced-motion guard in `src/index.css`. Don't reach for a motion library for effects CSS can express.
 
 **Revisit if:** Motion needs outgrow CSS (e.g. orchestrated, interruptible sequences).
+
+## No UI framework — vanilla TypeScript + jQuery
+
+**Decision:** The site is plain TypeScript with jQuery for DOM work. No React, no JSX, no component framework. Server state is still just static data in `Utilities/data/`.
+
+**Why:** The UI is a handful of static, data-driven sections. A framework earns its bundle weight and build complexity when there is shared interactive state to manage; here there is none, so the framework was pure overhead. jQuery keeps the DOM-wiring terse without a render runtime. TypeScript is kept because it costs nothing at runtime and catches template/route mistakes.
+
+**Consequences / constraints:** Markup lives in template strings inside `render*()` functions, so Tailwind classes are copied literally and must be preserved exactly. Anything interpolated from data goes through `escapeHtml`. Behaviour is attached after mount by `bind*()` functions rather than by declarative bindings.
+
+**Revisit if:** The site grows real client state (filters, auth, live data) — at that point a framework would earn its cost.
+
+## Vitest + jsdom for tests
+
+**Decision:** Behaviour is verified with Vitest running in a jsdom environment; no browser or E2E runner.
+
+**Why:** The app is DOM-rendering logic — template output, routing, and motion wiring. jsdom exercises all of that without a browser download, so the suite stays fast enough to run on every change.
+
+**Consequences / constraints:** jsdom gaps (`matchMedia`, `IntersectionObserver`, `scrollTo`) are stubbed in `tests/setup.ts`, not in production code. `tests/entry.test.ts` boots `main.ts` directly, which is the guard against the composition in the entry point drifting.
+
+**Revisit if:** Layout-dependent behaviour (real scroll timing, image loading, responsive breakpoints) needs verification — add a browser runner rather than weakening jsdom tests.

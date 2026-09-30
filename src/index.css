@@ -284,7 +284,7 @@ a.underline {
 }
 
 /* Reduced motion. Driven by a `reduce-motion` class on <html> (set in
-   main.tsx) so it tracks the OS preference but can also be forced on/off —
+   main.ts) so it tracks the OS preference but can also be forced on/off —
    prefers-reduced-motion itself is OS-level and not settable from JS. */
 html.reduce-motion { scroll-behavior: auto; }
 .reduce-motion .enter,

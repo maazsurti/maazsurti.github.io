@@ -56,3 +56,14 @@ No rationale, no patterns, no tasks — those live in `decisions.md`, `architect
 - Five supplied Slate screenshots cover Quick Record, Transactions, Credit Ledger, Analytics, and Settings.
 - Selected Work copy now covers both client work and independently built products.
 - Verified: lint clean, build green.
+
+## Vanilla TypeScript port — 2026-09-30
+
+- React, React DOM, React Router and the JSX pipeline removed; the site is now vanilla TypeScript + jQuery (`src/main.ts`, `src/router.ts`, `src/components/*.ts`, `src/dom.ts`).
+- Every section became a `render*(): string` template plus a `bind*()` that wires behaviour with jQuery; `main.ts` composes the home page and re-renders `#root` per route.
+- Routing is a small history-API router with same-origin link interception; returning from a detail page still re-centers the originating card via `sessionStorage`.
+- Portfolio data moved to `Utilities/data/*.ts` unchanged; the `App` type remains the shared contract.
+- Tooling: TypeScript 7 (native compiler), Biome replaces ESLint (typescript-eslint does not support TS 7), Vitest + jsdom added with `npm run test` / `npm run test:watch`.
+- Test suite covers data, router, dom helpers, motion, reveal, loader, all home sections, the detail page, and an entry test that boots `main.ts` and drives a real route change.
+- `public/404.html` plus an inline `index.html` snippet restore deep links on GitHub Pages.
+- Verified: lint clean, tests pass, build green.
