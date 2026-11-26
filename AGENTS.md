@@ -20,6 +20,7 @@ No UI framework — the DOM is rendered from plain HTML template strings and wir
 - `src/router.ts`: history-API router (`/` and `/apps/:id`), intercepts same-origin link clicks.
 - `src/components/`: one module per page section, each exporting `render*(): string` plus a `bind*()` where behaviour is needed.
 - `src/dom.ts`: `escapeHtml`, `mountHtml`, session-storage and year helpers.
+- `src/analytics.ts`: PostHog init, called from `src/main.ts` after the router starts.
 - `src/motion.ts` / `src/reveal.ts` / `src/loader.ts`: motion and shell behaviour.
 - `Utilities/data/`: portfolio content data (`apps.ts`, `timeline.ts`).
 - `Utilities/utils/`: shared helper utilities.
@@ -36,6 +37,12 @@ No UI framework — the DOM is rendered from plain HTML template strings and wir
 - Preserve the quiet editorial style of the site: cream background, black text, restrained accent color, serif display typography.
 - Keep changes scoped; avoid unrelated refactors or generated churn.
 - Run `npm run lint`, `npm run test`, and `npm run build` after meaningful code changes.
+
+## Analytics
+
+- PostHog loads only in production builds with `VITE_POSTHOG_KEY` set.
+- The project key lives in `~/MEGA/Keys/posthog-portfolio-project-key.txt` and feeds the GitHub Actions secret `POSTHOG_KEY`; the optional repository variable `POSTHOG_HOST` sets the host (`https://eu.i.posthog.com` for EU projects).
+- Tracking is anonymous and cookieless (memory persistence, no session recording), so the site needs no consent banner.
 
 ## Notes
 
