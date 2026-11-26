@@ -1,4 +1,5 @@
 import './index.css'
+import { initAnalytics } from './analytics'
 import { bindAppList, renderAppList } from './components/appList'
 import {
   DEFAULT_TITLE,
@@ -67,6 +68,7 @@ function render(route: Route): void {
 
 mountLoader()
 startRouter(render)
+initAnalytics()
 
 if (import.meta.env.DEV) {
   mountMotionToggle()
