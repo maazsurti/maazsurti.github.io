@@ -26,6 +26,7 @@ No UI framework — the DOM is rendered from plain HTML template strings and wir
 - `Utilities/utils/`: shared helper utilities.
 - `src/index.css`: global styles, Tailwind import, fonts, and theme tokens.
 - `public/`: static assets and SEO files.
+- `analytics-proxy/`: Cloudflare Worker that reverse-proxies PostHog at `relay.maazsurti.com`.
 - `tests/`: Vitest + jsdom tests, one file per module group.
 
 ## Conventions
@@ -41,7 +42,9 @@ No UI framework — the DOM is rendered from plain HTML template strings and wir
 ## Analytics
 
 - PostHog loads only in production builds with `VITE_POSTHOG_KEY` set.
-- The project key lives in `~/MEGA/Keys/posthog-portfolio-project-key.txt` and feeds the GitHub Actions secret `POSTHOG_KEY`; the optional repository variable `POSTHOG_HOST` sets the host (`https://eu.i.posthog.com` for EU projects).
+- The project key lives in `~/MEGA/Keys/posthog-portfolio-project-key.txt` and feeds the GitHub Actions secret `POSTHOG_KEY`.
+- Events go through the Cloudflare Worker in `analytics-proxy/`, served at `relay.maazsurti.com`, which forwards to PostHog US. Deploy it by hand with `npx wrangler deploy` from that folder; CI does not deploy it.
+- `VITE_POSTHOG_HOST` overrides the proxy host at build time.
 - Tracking is anonymous and cookieless (memory persistence, no session recording), so the site needs no consent banner.
 
 ## Notes
