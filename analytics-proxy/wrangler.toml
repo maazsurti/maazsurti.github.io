@@ -1,0 +1,9 @@
+name = "analytics-relay"
+main = "worker.js"
+compatibility_date = "2026-11-26"
+account_id = "d64ff018ca387bb2133f27cc2503171c"
+workers_dev = false
+
+routes = [
+  { pattern = "relay.maazsurti.com", custom_domain = true }
+]

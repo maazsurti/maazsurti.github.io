@@ -1,4 +1,4 @@
-const DEFAULT_HOST = 'https://us.i.posthog.com'
+const DEFAULT_HOST = 'https://relay.maazsurti.com'
 
 function analyticsKey(): string {
   return import.meta.env.VITE_POSTHOG_KEY ?? ''
@@ -16,6 +16,7 @@ export function initAnalytics(): void {
   void import('posthog-js').then(({ default: posthog }) => {
     posthog.init(key, {
       api_host: analyticsHost(),
+      ui_host: 'https://us.posthog.com',
       defaults: '2025-05-24',
       capture_pageview: 'history_change',
       capture_pageleave: true,
